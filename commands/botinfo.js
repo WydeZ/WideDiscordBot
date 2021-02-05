@@ -15,7 +15,6 @@ module.exports = {
                 .addField('Bot Owner', 'WideIrenaKan1#5105')
                 .addField('Channels', bot.channels.cache.size)
                 .addField('Servers', bot.guilds.cache.size)
-                .addField('Users', bot.users.cache.size)
                 .addField('Uptime', `${moment.utc(bot.uptime).format('HH:mm:ss')}`, true)
                 .setFooter('Bot ID: 729537680257450104                            Owner ID: 719507348137181254')
                 .setColor(0xF1C40F)

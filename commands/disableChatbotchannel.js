@@ -27,8 +27,8 @@ if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send({e
     
             message.channel.send({embed: {
             color: "GREEN",
-            title: `ChatBot Channel has been Succesfully Disabled! \`${channel.id}\``
-        }})
+            title: `ChatBot Channel has been Succesfully Disabled! \`${channel.id}\``,
+            footer: 'Credits to MoriDelta#6969'}})
         }
         return;
     } catch {

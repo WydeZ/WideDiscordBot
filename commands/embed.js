@@ -17,7 +17,7 @@ module.exports = {
     let Hex;
     let Footer;
 
-    message.channel.send('**Please type what channel you want this embed to be in by ID** Type: "none" if you want the embed to be in here | Type "cancel" to cancel anytime');
+    message.channel.send('**Please type below what channel you want this embed to be in by ID** Type: "none" if you want the embed to be in here | Type "cancel" to cancel anytime');
     let collector = new Discord.MessageCollector(message.channel, filter, { max: 1 });
     collector.on('collect', async(message, col) => {
         Channel = message.content;
@@ -72,7 +72,9 @@ module.exports = {
      
      let hello =  message.guild.channels.cache.get(Channel)
      if(!hello) return message.channel.send('You have provided an invalid channel ID')
-        hello.send(embed).catch((err) => {
+        hello.send(embed).then(() => {
+          message.channel.send(`I have succesfully made the embed in ${hello}`)
+        }).catch((err) => {
           return message.channel.send('I was not able to make the embed. Try the following:\nMake sure I have the right permission in that channel\nMake sure you did mention a channel by ID\n\nIf it still does not work report it using the !bug command or join the support server (!links)')
         })
    })

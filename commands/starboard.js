@@ -8,7 +8,7 @@ module.exports = {
   async execute(message, args, bot) {
  if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
 
-        let prefix = db.get(`prefix_${message.guild.id}`)
+        let prefix = await db.get(`prefix_${message.guild.id}`) || "!"
   if(prefix === null) prefix = "!";
      let starchan = db.get(`starboardchan_${message.guild.id}`)
      if(starchan === null) starchan = "Not Set Up Yet!"

@@ -11,6 +11,8 @@ module.exports = {
         `You don't have the right permission: Manage Server`
       );
     let channel = args[1] //mentioned channel
+    if(args[1] < 1) return message.reply('The number must be above 0!')
+    if(args[1] > 26) return message.reply('The number must be below 25')
     
     if (!channel) {
     message.channel.send('Please provide a number! | Usage: !setstarcount <number> or !setstarcount delete to delete the star count')

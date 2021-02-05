@@ -9,7 +9,7 @@ module.exports = {
 	cooldown: 1,
 		async execute(message, args, bot) {
      if (!args[1]) return message.channel.send('Please provide some text | Usage: !ascii <text>');
-            msg = args[1]
+            msg = args.slice(1).join(' ')
             if (msg.length > 13) return message.channel.send('Your text is too long, the maximum character is 13')
 
             figlet.text(msg, function (err, data) {

@@ -14,15 +14,17 @@ const status = new db.table("AFKs")
 		let afk = await status.fetch(message.author.id, message.guild.id)
 
 		if(!afk){
-		message.reply(`You have ben set to AFK! Reason: ${args.slice(1).join(" ") ? args.slice(1).join(" "): "Unspecified"}`)
-      message.member.setNickname(`[AFK]${message.author.username}`).catch((err) => {
+		message.reply(`You have been set to AFK! Reason: ${args.slice(1).join(" ") ? args.slice(1).join(" "): "Unspecified"}`)
+      message.member.setNickname(`[AFK] ${message.author.username}`).catch((err) => {
                 return
             })
-			status.set(message.author.id, message.guild.id, args.slice(1).join(" ") || `Unspecified`)
+			      status.set(`${message.author.id}_${message.guild.id}`, args.slice(1).join(" ") || `Unspecified`)
 		} else {
 		message.reply(`You have been removed from the AFK list!`).then(m => m.delete({ timeout: 2000 }));
 			status.delete(message.author.id, message.guild.id)
 		}
+
+  
 	
           
          

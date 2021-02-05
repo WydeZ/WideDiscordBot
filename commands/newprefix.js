@@ -22,10 +22,6 @@ module.exports = {
 
     if(args[1].toLowerCase() !== 'set') return message.channel.send("Usage: !newprefix set <new-prefix>")
     
-    if(args[2] === "!") {
-      db.delete(`prefix_${message.guild.id}`)
-     return await message.channel.send("Reseted Prefix ✅")
-    }
     
     db.set(`prefix_${message.guild.id}`, args[2])
   await message.channel.send(`Succesfully set the Bot Prefix to **"${args[2]}"**\n\n**__WARNING__** once you changed the prefix, some commands will still show as "!"`)

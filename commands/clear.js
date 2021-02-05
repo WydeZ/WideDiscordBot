@@ -17,8 +17,11 @@ module.exports = {
             if (amount > 100) return message.reply(`You cannot clear more than 100 messages at once`)
 
             if (amount < 1) return message.reply(`You need to delete at least one message`)
-message.delete()
-            message.channel.bulkDelete(amount).then(() => {
+            message.delete().then(() => {
+
+            
+            message.channel.bulkDelete(amount)
+            }).then(() => {
 
                 message.channel.send('Success!').then(m => m.delete({ timeout: 2000 }));
 

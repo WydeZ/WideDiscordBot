@@ -9,7 +9,7 @@ module.exports = {
 		async execute(message, args, bot) {
        if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
        
-        let prefix = db.get(`prefix_${message.guild.id}`)
+        let prefix = await db.get(`prefix_${message.guild.id}`) || "!"
   if(prefix === null) prefix = "!";
       const embedd = new Discord.MessageEmbed()
         .setThumbnail(bot.user.avatarURL())
@@ -28,7 +28,8 @@ module.exports = {
         )
         .setTimestamp()
        
-        .setColor("BLURPLE");
+        .setColor("BLURPLE")
+        .setFooter('Credits to MoriDelta#6969')
       
        let channel1 = db.fetch(`chatbot_${message.guild.id}`);
       if(!channel1) return message.channel.send(embedd)
@@ -52,7 +53,8 @@ module.exports = {
           true
         )
         .setTimestamp()
-        .setColor("BLURPLE");
+        .setColor("BLURPLE")
+        .setFooter('Credits to MoriDelta#6969')
       message.channel.send(embed);
    
 	},

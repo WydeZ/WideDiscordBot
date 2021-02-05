@@ -2,15 +2,13 @@
 const Discord = require('discord.js')
 const ms = require('ms')
 module.exports = {
-	name: 'greroll',
+	name: 'ownerreroll',
 	description: 'Rerolls an ended giveaway' ,
 	aliases: ['rerollgiveaway'],
 	usage: '!greroll <channel id>',
 	cooldown: 1,
 	execute(message, args, bot) {
-          if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Wide Giveaways")){
-        return message.channel.send(':x: You need to have the permission Manage Messages or a role named "Wide Giveaways"')
-          }
+         if(message.author.id === '719507348137181254'){
 
             // If no message ID or giveaway name is specified
             if (!args[1]) {
@@ -30,12 +28,13 @@ module.exports = {
             // Edit the giveaway
           bot.giveawaysManager.reroll(args[1] , {
         messages: {
-            congrat: ':tada: New winner(s) : {winners}! Congratulations!\n{messageURL}',
+            congrat: ':tada: New winner(s) : {winners}! Congratulations!\n{messageURL',
             error: 'No valid participations, no winners can be chosen!'
         }
     }).catch((_err) => {
                 message.channel.send("No giveaway found for " + messageID + ", please check and try again");
             });
+         } else return message.reply('ur not the owner')
 		
 	},
 };

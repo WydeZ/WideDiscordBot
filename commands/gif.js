@@ -10,6 +10,15 @@ module.exports = {
       if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
             let term = args.slice(1).join(" ")
             if (!term) return message.channel.send('What gif do you want me to give? | Usage: !gif <thing>')
+
+            let oop = args.slice(1).join(" ")
+                let baby = ['nude', 'boob', 'sex', 'porn', 'dick', 'penis']
+                for (var i = 0; i < baby.length; i++) {
+                    if (oop.includes(baby[i])) {
+                        return message.channel.send('**Please search for something else** :x:')
+                    }
+                }
+
             giphy.search(term).then(function (res) {
                 // Res contains gif data!
                 let id = res.data[0].id

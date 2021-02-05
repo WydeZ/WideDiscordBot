@@ -9,18 +9,18 @@ module.exports = {
 	async execute(message, args, bot) {
  const { commands } = message.client
  const PREFIX = "!"
-  let prefix = db.get(`prefix_${message.guild.id}`)
+  let prefix = await db.get(`prefix_${message.guild.id}`) || "!"
   if(prefix === null) prefix = PREFIX;
     if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
 
- var Wide = `${prefix}ping, ${prefix}poll, ${prefix}say, ${prefix}8ball, ${prefix}rate, ${prefix}kill, ${prefix}roast, ${prefix}urban, ${prefix}emojify, ${prefix}translate, ${prefix}randomnumber, ${prefix}pp, ${prefix}emergency, ${prefix}translate, ${prefix}ascii, ${prefix}hack, ${prefix}pepe, ${prefix}howgay, ${prefix}insult, ${prefix}dadjoke, ${prefix}iq, ${prefix}fancy, ${prefix}vaporwave, ${prefix}reverse`
-var funay = `${prefix}ttt, ${prefix}hangman, ${prefix}rps, ${prefix}quiz, ${prefix}snake, ${prefix}connectfour, ${prefix}pokemon, ${prefix}speedgame, ${prefix}flaggame. ${prefix}wyr`
-var inf = `${prefix}userinfo, ${prefix}invite, ${prefix}profile, ${prefix}info, ${prefix}vote, ${prefix}serverinfo, ${prefix}botinfo, ${prefix}weather, ${prefix}covid,  ${prefix}emojiinfo, ${prefix}members, ${prefix}npm`
-var mod = `${prefix}kick, ${prefix}ban, ${prefix}clear, ${prefix}slowmode, ${prefix}privatechannel, ${prefix}lockchannel, ${prefix}unlockchannel, ${prefix}openchannel, ${prefix}setnickname, ${prefix}channeladd, ${prefix}channelremove, ${prefix}nuke, ${prefix}giverole, ${prefix}removerole ${prefix}channeldelete`
-var gib = `${prefix}gstart, ${prefix}gedit, ${prefix}greroll, ${prefix}gdelete, ${prefix}gend. ${prefix}ginfo`
-var imagess = `${prefix}image, ${prefix}gif, ${prefix}deepfry, ${prefix}meme, ${prefix}delete, ${prefix}trigger, ${prefix}trash, ${prefix}pixelate, ${prefix}grayscale, ${prefix}wanted, ${prefix}wasted, ${prefix}changemymind, ${prefix}blur, ${prefix}clyde, ${prefix}grave, ${prefix}inverted, ${prefix}achievement, ${prefix}magik, ${prefix}wide`
-var other = `${prefix}bug, ${prefix}report, ${prefix}suggestion, ${prefix}avatar, ${prefix}translate, ${prefix}discrim, ${prefix}links, ${prefix}newprefix, ${prefix}embed, ${prefix}afk`
-var pog = `${prefix}chatbot, ${prefix}setchatbotchannel, ${prefix}disablechatbotchannel, ${prefix}setstarboard, ${prefix}setstarcount, ${prefix}starboard`
+ var Wide = "`ping`, `poll`, `say`, `8ball`, `rate`, `kill`, `roast`, `urban`, `emojify`, `translate`, `randomnumber`, `pp`, `emergency,` `translate`, `ascii`, `hack`, `pepe`, `howgay`, `insult`, `dadjoke`, `iq`"
+var funay = "`ttt`, `hangman`, `rps`, `quiz`, `snake`, `connectfour`, `pokemon`, `speedgame`, `flaggame`, `wyr`"
+var inf = "`userinfo`, `invite`, `profile`, `info`, `vote`, `serverinfo`, `botinfo`, `weather`, `covid`,  `emojiinfo`, `npm`"
+var mod = "`kick`, `ban`, `clear`, `slowmode`, `privatechannel`, `lockchannel,` `unlockchannel`, `openchannel`, `setnickname`, `channeladd`, `channelremove`, `nuke`, `giverole`, `removerole`, `channeldelete`"
+var gib = "`gstart`, `gedit`, `greroll`, `gdelete`, `gend`, `ginfo`"
+var imagess = "`image`, `gif`, `deepfry`, `meme`, `delete`, `trigger`, `trash`, `pixelate`, `grayscale`, `wanted`, `wasted`, `changemymind`, `blur`, `clyde`, `grave`, `inverted`, `achievement`, `magik`, `wide`"
+var other = "`bug`, `report`, `suggestion`, `avatar`, `translate`, `links`, `newprefix`, `embed`, `afk`, `stealemoji`"
+var pog = "`chatbot`, `setchatbotchannel`, `disablechatbotchannel`, `setstarboard`, `setstarcount`, `starboard`"
  if(!args[1]){
 
             let embed = new Discord.MessageEmbed()

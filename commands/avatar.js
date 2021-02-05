@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
 	name: 'avatar',
 	description:'Get the avatar URL of the tagged user(s), or your own avatar.' ,
-	aliases: ['icon'],
+	aliases: ['icon', 'av'],
 	usage: '!avatar <user(optional)>',
 	cooldown: 1,
 		async execute(message, args, bot) {

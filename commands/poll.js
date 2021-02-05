@@ -8,8 +8,8 @@ module.exports = {
 	cooldown: 1,
 	async execute(message, args, bot) {
     if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
-            if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You do not have the right permisison: Manage Messages')
-            const reactions = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', 'g', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹']
+         
+            const reactions = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹']
             const [question, ...choices] = args.slice(1).join(' ').split('|')
             if (!question) return message.channel.send("What do you want your question to be? | Usage: !poll <question> | <choice1> | <choice2> | .. up to 20 choices")
             if (!choices.length) return message.reply("Please input your choice | Usage: !poll <question> | <choice1> | <choice2> | .. up to 20 choices")

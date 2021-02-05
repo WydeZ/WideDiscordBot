@@ -30,6 +30,7 @@ if (!args[1]) {
             color: 'RED',
             title: `Please Enter a Valid Text Channel`
         }})
+        if(!channel.viewable) return message.channel.send("I can't see that channel!")
 
     try {
         let a = await db.fetch(`chatbot_${message.guild.id}`)
@@ -43,10 +44,10 @@ if (!args[1]) {
             bot.guilds.cache.get(message.guild.id).channels.cache.get(channel.id).send(`**ChatBot Channel Set!**`)
             db.set(`chatbot_${message.guild.id}`, channel.id)
 
-           message.channel.send({embed: {
+           message.channel.send('Credits to Mori Delta#6969' ,{embed: {
             color: 'GREEN',
             title: `ChatBot Channel has been Set Successfully \`${channel.id}\``
-        }})
+           }})
         }
     } catch {
         return message.channel.send(`**Error - Missing Permissions Or Channel Is Not A Text Channel!**`);

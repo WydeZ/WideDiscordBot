@@ -7,9 +7,8 @@ module.exports = {
 	cooldown: 1,
 	execute(message, args, bot) {
 if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send('I do not have the right permission: Kick Members')
-            if (message.channel.type === 'dm') {
-                return message.reply('I can\'t execute that command inside DMs!');
-            }
+if (!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send('You are not allowed to use this command: Kick Members')
+            
             const member = message.mentions.members.first()
             if (!message.mentions.users.size) {
                 return message.channel.send('You have to mention a user to kick!');
@@ -19,13 +18,9 @@ if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send
                 return message.channel.send('That role is higher than your highest role, please try again')
             } else if (!member.kickable) {
                 return message.channel.send('You cannot kick this user!');
-            } else if (!message.member.hasPermission('KICK_MEMBERS' / 'ADMINISTRATOR'))
-                message.channel.send('You are not allowed to use this command')
-            else {
-                return member
-                    .kick()
-                    .then(() => message.channel.send(`${member.user.tag} was kicked.`))
-                    .catch(err => message.channel.send(`Sorry, an error occured.`))
+            } 
+            else if(member) {
+                return member.kick().then(() => message.channel.send(`${member.user.tag} was kicked.`))
             }
  
 	},

@@ -13,7 +13,10 @@ module.exports = {
       return message.channel.send(
         `You don't have the right permission: Manage Server.`
       );
-    let channel = message.mentions.channels.first()//mentioned channel
+    let channel = message.mentions.channels.first()
+    
+    if(!channel.viewable) return message.channel.send("I can't see that channel!")
+
 
     if (!channel) {
    
@@ -25,7 +28,7 @@ module.exports = {
 
     await db.set(`starboardchan_${message.guild.id}`, channel.id)
 
-    message.channel.send(`**I have succesfully settes the starboard channel as** ${channel}`); //send success message
+    message.channel.send(`**I have succesfully setted the starboard channel as** ${channel}`); //send success message
     }
   },
 };

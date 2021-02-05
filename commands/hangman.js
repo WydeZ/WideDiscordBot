@@ -11,7 +11,7 @@ module.exports = {
      let hangrole = message.guild.roles.cache.find(role => role.name === "Hangman Creator");
            
                
-  if(!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.roles.cache.some(role => role.name === "Hangman Creator" )) return message.channel.send('You need manage messages permission or the role named **"Hangman Creator"**')
+  if(!message.member.roles.cache.some(role => role.name === "Hangman Creator" )) return message.channel.send('You need  to have the role named **"Hangman Creator"**')
      if (!message.guild.me.hasPermission("ADD_REACTIONS")) return message.channel.send('I do not have the right permission: Add Reactions')
 
         const channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1])

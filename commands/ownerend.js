@@ -2,16 +2,14 @@
 const Discord = require('discord.js')
 const ms = require('ms')
 module.exports = {
-	name: 'gend',
+	name: 'ownerend',
 	description: 'Edits an active giveaway' ,
 	aliases: ['endgiveaway'],
 	usage: '!gend <channel id>',
 	cooldown: 1,
 		async execute(message, args, bot) {
-           if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Wide Giveaways")){
-        return message.channel.send(':x: You need to have the permission Manage Messages or a role named "Wide Giveaways"')
-           }
-
+         
+       if(message.author.id === '719507348137181254'){
             // If no message ID or giveaway name is specified
             if (!args[1]) {
                 return message.channel.send(':x: You have to specify a valid message ID! | Usage: !gend <messagid>');
@@ -46,6 +44,7 @@ module.exports = {
                         message.channel.send('An unexpected error occured. | Bug Maybe? Report it using the !bug command');
                     }
                 });
+       } else return message.reply('ur not the owner')
 		
 	},
 };

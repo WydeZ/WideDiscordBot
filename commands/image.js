@@ -19,7 +19,13 @@ module.exports = {
 
     };
 
-
+ let oop = args.slice(1).join(" ")
+                let baby = ['nude', 'boob', 'sex', 'porn', 'dick', 'penis']
+                for (var i = 0; i < baby.length; i++) {
+                    if (oop.includes(baby[i])) {
+                        return message.channel.send('**Please search for something else** :x:')
+                    }
+                }
 
 
     request(options, function (error, _response, responseBody) {

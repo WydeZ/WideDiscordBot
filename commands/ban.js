@@ -7,6 +7,7 @@ module.exports = {
 	cooldown: 1,
 	execute(message, args, bot) {
      if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send('I do not have the right permission: Ban Members')
+ if (!message.member.hasPermission('BAN_MEMBERS')) return  message.channel.send('You are not allowed to use this command: Ban Members')
             if (message.channel.type === 'dm') {
                 return message.reply('I can\'t execute that command inside DMs!');
             }
@@ -19,16 +20,12 @@ module.exports = {
                 })
             } else if (member.roles.highest.position > message.member.roles.highest.position) {
                 return message.channel.send('That role is higher than your highest role, please try again')
-            }
-            else if (!message.member.hasPermission('BAN_MEMBERS' / 'ADMINISTRATOR'))
-                message.channel.send('You are not allowed to use this command')
-            else {
-                return member
-                    .ban()
-                    .then(() => message.channel.send(`${member.user.tag} was banned.`))
-                    .catch_(err => message.channel.send(`Sorry, an error occured.`))
-
-            }
+                }
+	             else if(member){
+                 member.ban().then(() => message.channel.send(`${member.user.tag} was banned.`))
+               }
+	
+            
 
  
 	},

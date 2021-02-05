@@ -1,3 +1,4 @@
+ 
 const Discord = require('discord.js')
 const db = require('quick.db')
 module.exports = {
@@ -23,6 +24,6 @@ const starboardnum = db.fetch(`starcount_${reaction.message.guild.id}`)
                     channelStarboard.send(`**Message has reached ${starboardnum} ⭐ Star(s)!** <#${reaction.message.channel.id}>`, starboardEmbed)
                 } else return
             }
-        
+ 
     }
 }
