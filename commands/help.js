@@ -13,13 +13,13 @@ module.exports = {
   if(prefix === null) prefix = PREFIX;
     if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
 
- var Wide = "`ping`, `poll`, `say`, `8ball`, `rate`, `kill`, `roast`, `urban`, `emojify`, `translate`, `randomnumber`, `pp`, `emergency,` `translate`, `ascii`, `hack`, `pepe`, `howgay`, `insult`, `dadjoke`, `iq`"
+ var Wide = "`ping`, `poll`, `say`, `8ball`, `rate`, `kill`, `roast`, `urban`, `emojify`, `translate`, `randomnumber`, `pp`, `emergency,` `translate`, `ascii`, `hack`, `pepe`, `howgay`, `insult`, `dadjoke`, `iq`, `truth`, `dare`"
 var funay = "`ttt`, `hangman`, `rps`, `quiz`, `snake`, `connectfour`, `pokemon`, `speedgame`, `flaggame`, `wyr`"
 var inf = "`userinfo`, `invite`, `profile`, `info`, `vote`, `serverinfo`, `botinfo`, `weather`, `covid`,  `emojiinfo`, `npm`"
 var mod = "`kick`, `ban`, `clear`, `slowmode`, `privatechannel`, `lockchannel,` `unlockchannel`, `openchannel`, `setnickname`, `channeladd`, `channelremove`, `nuke`, `giverole`, `removerole`, `channeldelete`"
 var gib = "`gstart`, `gedit`, `greroll`, `gdelete`, `gend`, `ginfo`"
-var imagess = "`image`, `gif`, `deepfry`, `meme`, `delete`, `trigger`, `trash`, `pixelate`, `grayscale`, `wanted`, `wasted`, `changemymind`, `blur`, `clyde`, `grave`, `inverted`, `achievement`, `magik`, `wide`"
-var other = "`bug`, `report`, `suggestion`, `avatar`, `translate`, `links`, `newprefix`, `embed`, `afk`, `stealemoji`"
+var imagess = "`image`, `gif`, `pat`, `deepfry`, `meme`, `delete`, `trigger`, `trash`, `pixelate`, `grayscale`, `wanted`, `wasted`, `changemymind`, `blur`, `clyde`, `grave`, `inverted`, `achievement`, `magik`, `wide`"
+var other = "`bug`, `report`, `suggestion`, `avatar`, `translate`, `links`, `newprefix`, `embed`, `afk`, `steale`, `eremove`"
 var pog = "`chatbot`, `setchatbotchannel`, `disablechatbotchannel`, `setstarboard`, `setstarcount`, `starboard`"
  if(!args[1]){
 

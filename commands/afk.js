@@ -9,6 +9,11 @@ module.exports = {
 	cooldown: 1,
 		async execute(message, args, bot) {
     
+    if(args.slice(1).join(" ")) {
+     if (args.slice(1).join(" ").includes(`@`)) {
+        return message.channel.send(`**:x: Please dont mention anyone**`);
+     }
+    }
 
 const status = new db.table("AFKs")
 		let afk = await status.fetch(message.author.id, message.guild.id)
@@ -20,7 +25,7 @@ const status = new db.table("AFKs")
             })
 			      status.set(`${message.author.id}_${message.guild.id}`, args.slice(1).join(" ") || `Unspecified`)
 		} else {
-		message.reply(`You have been removed from the AFK list!`).then(m => m.delete({ timeout: 2000 }));
+		message.reply(`You have been removed from the AFK list!`).then(m => m.delete({ timeout: 5000 }));
 			status.delete(message.author.id, message.guild.id)
 		}
 

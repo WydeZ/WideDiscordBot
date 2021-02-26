@@ -14,7 +14,7 @@ module.exports = {
 
 let daword = randomWords({exactly: 4, maxLength: 5, join: ' '})
      let embed = new Discord.MessageEmbed()
-     .setTitle('Type the word below!')
+     .setTitle('Type the words below!')
      .setDescription(`${daword}`)
      .setColor('BLURPLE')
      .setFooter('You have 7 seconds')

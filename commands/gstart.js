@@ -17,15 +17,18 @@ const wideemoji = bot.emojis.cache.get("806747858316296202")
 
 
 let giveawayDuration = args[1]
-            if (!giveawayDuration || isNaN(ms(giveawayDuration))) return message.channel.send('Please provide a valid duration | Usage: !gstart {duration} {winners} {prize} ex: !gstart 1d 1 Awsome Prize');
+            if (!giveawayDuration || isNaN(ms(giveawayDuration))) return message.channel.send('Please provide a valid duration | Usage: !gstart {duration} {winners} {prize} ex: !gstart 1d 1 Awesome Prize');
 
             let giveawayWinners = args[2];
 
-            if (isNaN(giveawayWinners) || (parseInt(giveawayWinners) <= 0)) return message.channel.send('Please provide a valid number of winners! |  Usage: !gstart {duration} {winners} {prize} ex: !gstart 1d 1 Awsome Prize');
+            if (isNaN(giveawayWinners) || (parseInt(giveawayWinners) <= 0)) return message.channel.send('Please provide a valid number of winners! |  Usage: !gstart {duration} {winners} {prize} ex: !gstart 1d 1 Awesome Prize');
+              if(parseInt(args[2]) > 10) return message.channel.send('The winners must be less than 10!')
+        if(ms(giveawayDuration) < ms('5s')) return message.channel.send('The giveaway cannot be less than 5 seconds!')
+         if(ms(giveawayDuration) > ms('12h')) return message.channel.send('The giveaway cannot be more than 12 hours!')
 
             let giveawayPrize = args.slice(3).join(" ");
 
-            if (!giveawayPrize) return message.channel.send('What prize do you wanna give? |  Usage: !gstart {duration} {winners} {prize} ex: !gstart 1d 1 Awsome Prize');
+            if (!giveawayPrize) return message.channel.send('What prize do you wanna give? |  Usage: !gstart {duration} {winners} {prize} ex: !gstart 1d 1 Awesome Prize');
             message.delete()
             bot.giveawaysManager.start(message.channel, {
                 time: ms(giveawayDuration),

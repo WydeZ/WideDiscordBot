@@ -26,7 +26,7 @@ module.exports = {
 
             // If no giveaway was found
             if (!giveaway) {
-                return message.channel.send(`I was unable to find a giveaway for ${args.slice(1).join(' ')}.`);
+                return message.channel.send(`I was unable to find a giveaway for "${args.slice(1).join(' ')}" | Did the timer froze/won't end? Do !bgend (!backupgend) to end the giveaway`);
             }
 
             // Edit the giveaway

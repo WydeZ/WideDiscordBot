@@ -30,12 +30,12 @@ module.exports = {
                 .then(collected => {
                     const m = collected.first();
                     if (!m.content || m.content.toLowerCase() !== data.countryname.toLowerCase())
-                        return message.channel.send(`❌ | Incorrect guess! | The correct answer was **${data.countryname.toLowerCase()}**!`)
+                        return message.channel.send(`❌ | Incorrect guess! | The correct answer was **${data.countryname}**!`)
 
                     return message.channel.send(`✅ **| Correct guess! Well Done!**`);
                 })
                 .catch(() => {
-                    message.channel.send(`❌ | You did not answer in time! | The correct answer was **${data.countryname.toLowerCase()}**!`)
+                    message.channel.send(`❌ | You did not answer in time! | The correct answer was **${data.countryname}**!`)
  
    
                 })

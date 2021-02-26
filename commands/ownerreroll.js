@@ -28,7 +28,7 @@ module.exports = {
             // Edit the giveaway
           bot.giveawaysManager.reroll(args[1] , {
         messages: {
-            congrat: ':tada: New winner(s) : {winners}! Congratulations!\n{messageURL',
+            congrat: ':tada: New winner(s) : {winners}! Congratulations!\n{messageURL}',
             error: 'No valid participations, no winners can be chosen!'
         }
     }).catch((_err) => {
