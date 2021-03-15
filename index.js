@@ -254,7 +254,22 @@ bot.on('message', async message => {
 
  }
 }) 
+bot.on('message', async message => {
+  if(message.channel.type === "dm") return
+   let args = message.content.substring(PREFIX.length).split(" ");
+ if(message.content.startsWith('!dogpfp')){
+   const embed  = new Discord.MessageEmbed()
+   .setTitle('Dog PFP')
+   .setImage('https://i.pinimg.com/originals/fe/9b/fc/fe9bfc854d5beb97e8591fc3e066b896.gif')
+   .setDescription('dog pfp')
+   .setColor('ORANGE')
+   .setFooter('dog pfp')
+   message.channel.send(embed)
+    
+     } 
 
+ 
+}) 
 
 bot.on('message', async message => {
   if(message.channel.type === "dm") return
@@ -300,7 +315,7 @@ if(message.channel.type === "dm") return
         const embed = new Discord.MessageEmbed()
             .setTitle("Prefix")
             .setDescription(`My Prefix is "${prefix}"`)
-            .setFooter(`Type ${prefix}help for more information`)
+            .setFooter(`Type ${prefix}help for more information | "${prefix}newprefix set <prefix>" to change prefix`)
             .setThumbnail(bot.user.displayAvatarURL())
             .setColor('RANDOM')
         message.channel.send(embed)
@@ -435,14 +450,13 @@ if(message.channel.type === "dm") return
         let channel = db.fetch(`chatbot_${message.guild.id}`);
      if(!channel) return;
         var sChannel = message.guild.channels.cache.get(channel);
-      if(!sChannel.viewable) return
-     if (message.author.bot || sChannel.id !== message.channel.id) return;
+     if (message.author.bot) return;
+     if(sChannel.id !== message.channel.id) return
      message.content = message.content.replace(/@(everyone)/gi, "everyone").replace(/@(here)/gi, "here");
      if (message.content.includes(`@`)) {
         return sChannel.send(`**:x: Please dont mention anyone**`);
      }
       let content = message.content;
-
 if(message.content && !message.author.bot){
         sChannel.startTyping();
     if (!message.content) return sChannel.send("Please say something.");
@@ -566,5 +580,7 @@ console.log(os.freemem())
 
 
 bot.login(process.env.token).catch((err) => {
-  console.log(err)
+ message.channel.send(`Oh no! an error occured **${err.message}** | The most common problem is that I don't have the right permissions to a channel/server. | If you there is still the error please join the support server: https://discord.gg/eqjuTv8 `).catch((err) => {
+   return
+ })
 })

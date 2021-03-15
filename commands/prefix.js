@@ -13,7 +13,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
             .setTitle("Prefix")
             .setDescription(`My Prefixes are:\n- ${prefix}\n- <@${bot.user.id}>`)
-            .setFooter(`Type ${prefix}help for more information`)
+            .setFooter(`Type ${prefix}newprefix set <prefix> to change prefix | "${prefix}help" to get the list of commands `)
             .setThumbnail(bot.user.displayAvatarURL())
             .setColor('RANDOM')
         message.channel.send(embed)

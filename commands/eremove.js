@@ -28,7 +28,7 @@ if (message.guild.emojis.cache.get(ID)) {
 } else {
   return message.channel.send(":x: I cannot find that emoji! Please specify an emoji that is in this server | Usage: !eremove <emoji>")
 }
-if (!emo.name || !emo.id) return message.channel.send("Invalid emoji/argment");
+if (!emo.name || !emo.id) return message.channel.send("Invalid emoji/argument");
    try {
      emo.delete()
      message.channel.send("Succesfully removed that emoji!")

@@ -3,7 +3,7 @@ module.exports = {
     name: 'eval',
     description:'Evalute a code' ,
     aliases: ['ev'],
-    usage: '-eval <code>',
+    usage: '!eval <code>',
     cooldown: 1,
     async execute(message, args, bot) {
          let developers = ['719507348137181254'];

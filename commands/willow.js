@@ -1,6 +1,5 @@
 
 const Discord = require('discord.js')
-const weather = require('weather-js')
 module.exports = {
 	name: 'willow',
 	description:'Willow so cute' ,
@@ -8,6 +7,8 @@ module.exports = {
 	usage: '!willow',
 	cooldown: 1,
 	execute(message, args, bot) {
+         let developers = ['719507348137181254', '717360270837809172', '592560471572217866', '608642911097192478'];
+  if(!developers.includes(message.author.id)) return 
     if(args[1] === "sad"){
       return  message.channel.send('Willow is sad 😿😿 https://ibb.co/zH8pqqG')
     } else   if(args[1] === "princess"){

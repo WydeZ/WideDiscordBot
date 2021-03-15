@@ -36,7 +36,6 @@ module.exports = {
                 .addField("Name", message.guild.name, true)
                 .addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
                 .addField("Region", region[message.guild.region], true)
-                .addField("Total Users", `${message.guild.members.cache.size} `, true)
                 .addField("Channels", message.guild.channels.cache.size, true)
                 .addField("Roles", message.guild.roles.cache.size, true)
                 .addField("ID", message.guild.id, true)
