@@ -15,7 +15,7 @@ module.exports = {
 
  var Wide = "`ping`, `poll`, `say`, `8ball`, `rate`, `kill`, `roast`, `urban`, `emojify`, `translate`, `randomnumber`, `pp`, `emergency,` `translate`, `ascii`, `hack`, `pepe`, `howgay`, `insult`, `dadjoke`, `iq`, `truth`, `dare`, `decode`"
 var funay = "`battle`, `ttt`, `hangman`, `rps`, `quiz`, `snake`, `connectfour`, `pokemon`, `speedgame`, `flaggame`, `wyr`"
-var inf = "`userinfo`, `invite`, `profile`, `info`, `vote`, `serverinfo`, `botinfo`, `weather`, `covid`,  `emojiinfo`, `npm`, `define`, `decode`"
+var inf = "`userinfo`, `invite`, `profile`, `vote`, `serverinfo`, `botinfo`, `weather`, `covid`,  `emojiinfo`, `npm`, `define`, `decode`"
 var mod = "`kick`, `ban`, `clear`, `slowmode`, `privatechannel`, `lockchannel,` `unlockchannel`, `openchannel`, `setnickname`, `channeladd`, `channelremove`, `nuke`, `giverole`, `removerole`, `channeldelete`"
 var gib = "`gstart`, `gedit`, `greroll`, `gdelete`, `gend`, `ginfo`"
 var imagess = "`image`, `gif`, `pat`, `deepfry`, `meme`, `delete`, `trigger`, `trash`, `pixelate`, `grayscale`, `wanted`, `wasted`, `changemymind`, `blur`, `clyde`, `grave`, `inverted`, `achievement`, `magik`, `wide`"

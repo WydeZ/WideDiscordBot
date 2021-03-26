@@ -12,7 +12,7 @@ module.exports = {
             if (!args[1]) return message.channel.send(`Please provide the bug (ex: !bug !help isnt working)`).then(m => m.delete({ timeout: 15000 }));
             let guildMain = bot.guilds.cache.get("719904792922816596")
             let reportsChannel = guildMain.channels.cache.find(x => x.id === "747697732294279268")
-            message.channel.send('Your bug report has been filled to the staff team. Thank you for reporting!')
+            message.channel.send('Your bug report has been filled to the staff team. Thank you for reporting! | If you misuse the bug command multiple times, you will get blacklisted.')
             const embed = new Discord.MessageEmbed()
                 .setTitle('A user has encountered a bug')
                 .setDescription(`**${reason}**`)

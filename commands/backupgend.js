@@ -41,7 +41,7 @@ module.exports = {
        
                                                             }}
                                                                                                                   
-     message.channel.send(`-${users.join("\n-")}\nhas won the giveaway!`);
+     message.channel.send(`:tada: ${users.join(", ")} has won the giveaway! has won the giveaway! Congratulations!\n${m.url}`);
                                                           
     
          
