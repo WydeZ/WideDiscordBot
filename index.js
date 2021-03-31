@@ -15,12 +15,9 @@ const math = require('mathjs');
 require('events').EventEmitter.defaultMaxListeners = 0;
 const querystring = require('querystring')
 const ezgames = require('ez-games.js')
-const repldata = require("@replit/database")
-const tb = new repldata()
-;
-
 const queue = new Map();
 const ranimg = require('ranimg');
+
 var randomWords = require('random-words');
 const yts = require("yt-search");
 const path = require('path');
@@ -36,7 +33,9 @@ const hastebin = require("hastebin-gen");
 const random = require('random')
 const translate = require('@k3rn31p4nic/google-translate-api');
 const { TextChannel } = require("discord.js")
+
 const Jumble = require("jumble-words");
+
 const MadnessTikTok = require("tiktok-scraper");
 const { Spawn } = require("pokecord");
 const Got = require("got");
@@ -64,50 +63,16 @@ console.log('Server is online!'))
 const cheerio = require('cheerio');
 
 const request = require('request')
+const repldata = require("@replit/database")
+const tb = new repldata();
+
 
 const { GiveawaysManager } = require('discord-giveaways');
-const GiveawayManagerWithOwnDatabase = class extends GiveawaysManager {
-    // This function is called when the manager needs to get all the giveaway stored in the database.
-    async getAllGiveaways() {
-        // Get all the giveaway in the database
-        return db.get('giveaways');
-    }
 
-    // This function is called when a giveaway needs to be saved in the database (when a giveaway is created or when a giveaway is edited).
-    async saveGiveaway(messageID, giveawayData) {
-        // Add the new one
-        db.push('giveaways', giveawayData);
-        // Don't forget to return something!
-        return true;
-    }
 
-    async editGiveaway(messageID, giveawayData) {
-        // Gets all the current giveaways
-        const giveaways = db.get('giveaways');
-        // Remove the old giveaway from the current giveaways ID
-        const newGiveawaysArray = giveaways.filter((giveaway) => giveaway.messageID !== messageID);
-        // Push the new giveaway to the array
-        newGiveawaysArray.push(giveawayData);
-        // Save the updated array
-        db.set('giveaways', newGiveawaysArray);
-        // Don't forget to return something!
-        return true;
-    }
-
-    // This function is called when a giveaway needs to be deleted from the database.
-    async deleteGiveaway(messageID) {
-        // Remove the giveaway from the array
-        const newGiveawaysArray = db.get('giveaways').filter((giveaway) => giveaway.messageID !== messageID);
-        // Save the updated array
-        db.set('giveaways', newGiveawaysArray);
-        // Don't forget to return something!
-        return true;
-    }
-};
-
-const manager = new GiveawayManagerWithOwnDatabase(bot, {
-    storage: false,
-    updateCountdownEvery: 15000,
+const manager = new GiveawaysManager(bot, {
+  storage: './giveaways.json',
+    updateCountdownEvery: 10000,
       hasGuildMembersIntent: false,
     default: {
         botsCanWin: false,
@@ -215,7 +180,6 @@ bot.on('message',async  message => {
 
 	if (!command) return;
 
-
 	if (!cooldowns.has(command.name)) {
 		cooldowns.set(command.name, new Discord.Collection());
 	}
@@ -231,6 +195,8 @@ bot.on('message',async  message => {
 			const timeLeft = (expirationTime - now) / 1000;
 			return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
 		}
+
+    
 	}
 
 	timestamps.set(message.author.id, now);
@@ -293,6 +259,7 @@ bot.on('message', async message => {
 
  }
 }) 
+;
 bot.on('message', async message => {
   if(message.channel.type === "dm") return
    let args = message.content.substring(PREFIX.length).split(" ");
@@ -511,11 +478,8 @@ if(message.content && !message.author.bot){
         })
         sChannel.stopTyping();
 }
-
-  
-         
-              
-    });
+})       
+   
 
 bot.on("message", message => {
   if(message.content === "!owner"){
@@ -543,8 +507,23 @@ bot.on("message", message => {
 
   }
 })
+ manager.on('giveawayReactionAdded', async (giveaway, winners, reaction) => {
+   console.log(giveaway.extraData.role)
+ if (
+      giveaway.extraData.role !== null &&
+      !member.roles.cache.some(r => r.id ===giveaway.extraData.role)
+    ) {
+      reaction.users.remove(member.user);
+      member.send({
+        embed: {
+          title: ":x: Entry Denied!",
+          description: `You must have the role \`${giveaway.extraData.role}\` to participate in that giveaway.`,
+        }
+      });
+    }
+  })
 
-manager.on('giveawayEnded', async (giveaway, winners) => {
+manager.on('giveawayEnded', async (giveaway, winners, reaction) => {
   const hostID = giveaway.hostedBy.slice(2, -1);
   const host = await bot.users.fetch(hostID)
 
@@ -585,6 +564,7 @@ let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 reportsChannel.send(embed)
 })
+
 
 
 bot.on("message", async message => {
