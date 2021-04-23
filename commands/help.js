@@ -19,7 +19,7 @@ var inf = "`userinfo`, `invite`, `profile`, `vote`, `serverinfo`, `botinfo`, `we
 var mod = "`kick`, `ban`, `clear`, `slowmode`, `privatechannel`, `lockchannel,` `unlockchannel`, `openchannel`, `setnickname`, `channeladd`, `channelremove`, `nuke`, `giverole`, `removerole`, `channeldelete`"
 var gib = "`gstart`, `gedit`, `greroll`, `gdelete`, `gend`, `ginfo`"
 var imagess = "`image`, `gif`, `pat`, `deepfry`, `meme`, `delete`, `trigger`, `trash`, `pixelate`, `grayscale`, `wanted`, `wasted`, `changemymind`, `blur`, `clyde`, `grave`, `inverted`, `achievement`, `magik`, `wide`"
-var other = "`bug`, `report`, `suggestion`, `avatar`, `translate`, `links`, `newprefix`, `embed`, `afk`, `steale`, `eremove`, `decode`"
+var other = "`bug`, `report`, `suggestion`, `avatar`, `translate`, `links`, `newprefix`, `embed`, `afk`, `steale`, `eremove`, `decode`, `msgemoji`"
 var pog = "`chatbot`, `setchatbotchannel`, `disablechatbotchannel`, `setstarboard`, `setstarcount`, `starboard`"
  if(!args[1]){
 

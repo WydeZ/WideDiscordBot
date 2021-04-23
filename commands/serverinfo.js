@@ -30,11 +30,14 @@ module.exports = {
                 "russia": ":flag_ru: Russia",
                 "southafrica": ":flag_za:  South Africa"
             };
+   const hey = bot.users.fetch(message.guild.ownerID).then(hey => {
+
+   
             const emojis = message.guild.emojis.cache;
             const embed = new Discord.MessageEmbed()
                 .setAuthor(message.guild.name, message.guild.iconURL)
                 .addField("Name", message.guild.name, true)
-                .addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
+                .addField("Owner", `${hey.username}#${hey.discriminator}`, true)
                 .addField("Region", region[message.guild.region], true)
                 .addField("Channels", message.guild.channels.cache.size, true)
                 .addField("Roles", message.guild.roles.cache.size, true)
@@ -43,6 +46,7 @@ module.exports = {
                 .addField("Creation Date", `${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`, true)
                 .setThumbnail(message.guild.iconURL)
             message.channel.send(embed);
+   })
 	
 	},
 };

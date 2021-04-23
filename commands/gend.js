@@ -29,15 +29,11 @@ module.exports = {
                 return message.channel.send(`I was unable to find a giveaway for "${args.slice(1).join(' ')}" | Did the timer froze/won't end? Do !bgend (!backupgend) to end the giveaway`);
             }
 
-            // Edit the giveaway
+       message.channel.send('Giveaway will end very shortly').then(m => m.delete({ timeout: 5000 }));
             bot.giveawaysManager.edit(giveaway.messageID, {
                 setEndTimestamp: Date.now()
             })
-                // Success message
-                .then(() => {
-                    // Success message
-                    message.channel.send('Giveaway will end very shortly').then(m => m.delete({ timeout: 5000 }));
-                })
+              
                 .catch((e) => {
                     if (e.startsWith(`Giveaway with message ID ${giveaway.messageID} is already ended.`)) {
                         message.channel.send('This giveaway is already ended!');

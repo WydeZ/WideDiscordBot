@@ -1,6 +1,8 @@
 
 const Discord = require('discord.js')
 const ms = require('ms')
+ const { Database } = require("quick.replit");
+const gdb = new Database(process.env.REPLIT_DB_URL)
 module.exports = {
 	name: 'gstart',
 	description: 'Starts an epic giveaway' ,
@@ -12,7 +14,7 @@ module.exports = {
     if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Wide Giveaways")){
         return message.channel.send(':x: You need to have the permission Manage Messages or a role named "Wide Giveaways"');
     }
-const wideemoji = bot.emojis.cache.get("806747858316296202")
+const wideemoji = bot.emojis.cache.get("834224941150502912")
             if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
 
 
@@ -23,7 +25,7 @@ let giveawayDuration = args[1]
 
             if (isNaN(giveawayWinners) || (parseInt(giveawayWinners) <= 0)) return message.channel.send('Please provide a valid number of winners! | Usage: !gstart {duration} {winners} {roleID/none} {prize} ex: !gstart 1d 1 98398294 Awesome Prize | If you dont want any req: !gstart 1d 1 none Awesome Prize');
               if(parseInt(args[2]) > 10) return message.channel.send('The winners must be less than 10!')
-        if(ms(giveawayDuration) < ms('5s')) return message.channel.send('The giveaway cannot be less than 5 seconds!')
+        if(ms(giveawayDuration) < ms('10s')) return message.channel.send('The giveaway cannot be less than 10 seconds!')
          if(ms(giveawayDuration) > ms('7d')) return message.channel.send('The giveaway cannot be more than 7 days!')
 
 let req = args[3]
@@ -37,7 +39,7 @@ if(!yesreq && args[3] != oo) return message.channel.send('That is not a valid ro
             message.delete()
 
         if(args[3] === oo){
-            bot.giveawaysManager.start(message.channel, {
+           await bot.giveawaysManager.start(message.channel, {
                 time: ms(giveawayDuration),
                 prize: giveawayPrize,
                 winnerCount: giveawayWinners,
@@ -61,9 +63,10 @@ if(!yesreq && args[3] != oo) return message.channel.send('That is not a valid ro
                         pluralS: false
                     }
                 }
-            });   
+             
+            });  
         } else {
-            bot.giveawaysManager.start(message.channel, {
+           await bot.giveawaysManager.start(message.channel, {
                 time: ms(giveawayDuration),
                 prize: giveawayPrize,
                 winnerCount: giveawayWinners,
@@ -71,15 +74,14 @@ if(!yesreq && args[3] != oo) return message.channel.send('That is not a valid ro
                 messages: {
                     giveaway: `${wideemoji} **GIVEAWAY** ${wideemoji}`,
                     giveawayEnded: `${wideemoji} **GIVEAWAY ENDED** ${wideemoji}`,
-                    timeRemaining: "Time remaining: **{duration}**",
-                    inviteToParticipate: `React with 🎉 to enter\nMust have the ${yesreq} role to enter!`,
+                    timeRemaining: `Time remaining: **{duration}**\nRole Required: ${yesreq}`,
+                    inviteToParticipate: `React with 🎉 to enter`,
                     winMessage: `Congratulations {winners}! You won **{prize}** ${wideemoji}\n{messageURL}`,
                     embedFooter: "Giveaway time!",
                     noWinner: "Couldn't determine a winner",
                     hostedBy: "Hosted by {user}",
                     winners: "winner(s)",
                     endedAt: "Ends at",
-                    extraData: {role:yesreq.id},
                     units: {
                         seconds: "seconds",
                         minutes: "minutes",
@@ -87,11 +89,12 @@ if(!yesreq && args[3] != oo) return message.channel.send('That is not a valid ro
                         days: "days",
                         pluralS: false
                     }
-                }
+                },
+                 extraData: {
+                   role:yesreq
+                   },
+               
             })
-            console.log(yesreq.id)
-       
-
       } 
 		
 	},

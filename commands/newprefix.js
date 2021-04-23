@@ -5,6 +5,7 @@ module.exports = {
   usage: "!newprefix set <new-prefix>",
   description: "Change the guild prefix",
   aliases: ['np', 'newp'],
+  cooldown: 10,
   async execute( message, args, bot) {
     //PERMISSION
     if(!message.member.hasPermission("MANAGE_GUILD")) {

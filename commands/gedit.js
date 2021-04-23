@@ -16,6 +16,16 @@ module.exports = {
             if (!giveawayDuration || isNaN(ms(giveawayDuration))) return message.channel.send('Pleae provide a valid duration | ex: !gedit {messageid} 30s 3 nitro');
             let giveawayWinners = args[3];
             if (isNaN(giveawayWinners) || (parseInt(giveawayWinners) <= 0)) return message.channel.send('Please provide a valid number of winners! | ex: !gedit {messageid} 30s 3 nitro')
+             let giveaway =
+                // Search with giveaway prize
+                bot.giveawaysManager.giveaways.find((g) => g.prize === args.slice(2).join(' ')) ||
+                // Search with giveaway ID
+                bot.giveawaysManager.giveaways.find((g) => g.messageID === args[1]);
+
+            // If no giveaway was found
+            if (!giveaway) {
+                return message.channel.send(`I was unable to find a giveaway for "${args.slice(1).join(' ')}" | Did the timer froze/won't end? Do !bgend (!backupgend) to end the giveaway`);
+            }
             let giveawayPrize = args.slice(4).join(" ");
             if (!messageID) message.channel.send('Please provide a message ID.')
             bot.giveawaysManager.edit(messageID, {
@@ -28,5 +38,6 @@ module.exports = {
                 message.channel.send("No giveaway found for " + messageID + ", please check and try again");
             });       
 		
+            
 	},
 };

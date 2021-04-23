@@ -15,7 +15,7 @@ module.exports = {
 
 let giveawayDuration = args[1]
             if (!giveawayDuration || isNaN(ms(giveawayDuration))) return message.channel.send('Please provide a valid duration | Usage: !gstart {duration} {winners} {prize} ex: !gstart 1d 1 Awsome Prize');
-const wideemoji = bot.emojis.cache.get("806747858316296202")
+const wideemoji = bot.emojis.cache.get("834224941150502912")
             let giveawayWinners = args[2];
 
             if (isNaN(giveawayWinners) || (parseInt(giveawayWinners) <= 0)) return message.channel.send('Please provide a valid number of winners! |  Usage: !gstart {duration} {winners} {prize} ex: !gstart 1d 1 Awsome Prize');

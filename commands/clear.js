@@ -20,7 +20,9 @@ module.exports = {
             message.delete().then(() => {
 
             
-            message.channel.bulkDelete(amount)
+            message.channel.bulkDelete(amount).catch((err) => {
+                return message.channel.send(`Oh no, an error occurred: \`${err.message}\`.`)
+            })
             }).then(() => {
 
                 message.channel.send('Success!').then(m => m.delete({ timeout: 2000 }));
