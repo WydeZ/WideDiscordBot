@@ -21,7 +21,7 @@ const openrole = message.guild.roles.everyone
 
 
         } else if (rolelock) { message.delete()
-        message.channel.updateOverwrite(rolelock, { "VIEW_CHANNEL": false})
+        message.channel.updateOverwrite(rolelock, { "VIEW_CHANNEL": true})
         message.channel.send(`Sucess! I have made the channel public for the role `).then(m => m.delete({ timeout: 3500 }))
         }
             

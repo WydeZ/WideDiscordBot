@@ -48,7 +48,6 @@ const giphy = require('giphy-api')("W8g6R14C0hpH6ZMon9HV9FTqKs4o4rCk")
 const token = " ";
 const TicTacToe = require('discord-tictactoe');
 const PREFIX = '!';
-
 const ownerid = "719507348137181254"
 
 const express = require('express')
@@ -193,7 +192,7 @@ const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'
 bot.on("ready", async () => {
   let activities = [
      
-      `!help | !invite | !vote on ${bot.guilds.cache.size} servers | Owner: WideIrenaKan1#3119`
+      `!help | !invite | !vote on ${bot.guilds.cache.size} servers`
   ],i = 0;
   setInterval( () => bot.user.setActivity(`${activities[i++ % activities.length]}`, {
         type: "WATCHING"
@@ -214,29 +213,39 @@ bot.on("ready", async () => {
 });
 
 bot.on('guildCreate', guild => {
-
 let guildMain = bot.guilds.cache.get("719904792922816596")
             let reportsChannel = guildMain.channels.cache.find(x => x.id === "792346948837310505")
+            const hey = bot.users.fetch(guild.ownerID).then(hey => {
               const embedd = new Discord.MessageEmbed()
             .setTitle('Someone just put me in their server!')
             .addField('Server Name', `${guild.name}`)
             .addField('Server ID', `${guild.id}`)
+            .addField('Owner', `${hey.username}#${hey.discriminator}`)
            .setFooter(`Now I have ${bot.guilds.cache.size} servers`) 
-           
-           const embed = new Discord.MessageEmbed()
-            .setTitle('Someone just put me in their server!')
-            .addField('Server Name', `${guild.name}`)
-            .addField('Server ID', `${guild.id}`)
-            .setFooter(`Now I have ${bot.guilds.cache.size} servers`)
-            
+           .setColor('GREEN')
             reportsChannel.send(embedd).catch((err) => {
-              reportsChannel.send(embed)
+              reportsChannel.send(err)
             })
-
-
+            })
 });
 
 
+bot.on("guildDelete", guild => {
+let guildMain = bot.guilds.cache.get("719904792922816596")
+            let reportsChannel = guildMain.channels.cache.find(x => x.id === "792346948837310505")
+            const hey = bot.users.fetch(guild.ownerID).then(hey => {
+              const embedd = new Discord.MessageEmbed()
+            .setTitle('Someone just removed me from their server :(')
+            .addField('Server Name', `${guild.name}`)
+            .addField('Server ID', `${guild.id}`)
+             .addField('Owner', `${hey.username}#${hey.discriminator}`)
+           .setFooter(`Now I have ${bot.guilds.cache.size} servers`) 
+           .setColor('RED')
+            reportsChannel.send(embedd).catch((err) => {
+              reportsChannel.send(err)
+            })
+            })
+});
 const cooldowns = new Discord.Collection();
     this.aliases = new Discord.Collection()
     this.description = new Discord.Collection();
@@ -288,6 +297,8 @@ bot.on('message',async  message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
    let blacklisted = db.get(`blacklist_${message.author.id}`)
    if(blacklisted === 'blacklist') return
+
+    if (message.content.length > 2048) return;
 	try {
     
 		command.execute(message, args, bot);
@@ -317,6 +328,8 @@ bot.on('message', async message => {
     
     if(blacklisted === "blacklist") return message.channel.send(`That user is already blacklisted!`)
         })
+    
+        
     let reason = args.slice(2).join(' ')
     if(!reason) reason = "N/A"
     bot.users.fetch(args[1]).then(user => {
@@ -532,6 +545,7 @@ if(message.channel.type === "dm") return
         let channel = db.fetch(`chatbot_${message.guild.id}`);
      if(!channel) return;
         var sChannel = message.guild.channels.cache.get(channel);
+        if(!sChannel) return
      if (message.author.bot) return;
      if(sChannel.id !== message.channel.id) return
      message.content = message.content.replace(/@(everyone)/gi, "everyone").replace(/@(here)/gi, "here");
@@ -587,6 +601,7 @@ bot.on("message", message => {
 bot.on("message", async message => {
     if(message.guild) return;
 if(message.author.id === bot.user.id) return;
+if(message.author.id === '719507348137181254') return;
 let guildMain = bot.guilds.cache.get("719904792922816596")
  let reportsChannel = guildMain.channels.cache.find(x => x.id === "813219764343668790")
 let embed = new Discord.MessageEmbed()
@@ -631,7 +646,12 @@ console.log(os.cpus());
 console.log(os.totalmem());
 console.log(os.freemem())
 
-
+process.on('unhandledRejection', (reason, p) => {
+  console.log('===== UNHANDLED REJECTION =====');
+  console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
+  console.log('===== UNHANDLED REJECTION =====');
+  // application specific logging, throwing an error, or other logic here
+});
 
 bot.login(process.env.token).catch((err) => {
  message.channel.send(`Oh no! an error occured **${err.message}** | The most common problem is that I don't have the right permissions to a channel/server. | If you there is still the error please join the support server: https://discord.gg/eqjuTv8 `).catch((err) => {

@@ -42,7 +42,7 @@ if(!yesreq && args[3] != oo) return message.channel.send('That is not a valid ro
            await bot.giveawaysManager.start(message.channel, {
                 time: ms(giveawayDuration),
                 prize: giveawayPrize,
-                winnerCount: giveawayWinners,
+                winnerCount: parseInt(giveawayWinners),
                 hostedBy: message.author,
                 messages: {
                     giveaway: `${wideemoji} **GIVEAWAY** ${wideemoji}`,
@@ -61,15 +61,21 @@ if(!yesreq && args[3] != oo) return message.channel.send('That is not a valid ro
                         hours: "hours",
                         days: "days",
                         pluralS: false
-                    }
-                }
+                    },       
+                },
+                lastChance: {
+        enabled: true,
+        content: '⚠️ **LAST CHANCE TO ENTER !** ⚠️',
+        threshold: 5000,
+        embedColor: '#FF0000'
+    },
              
             });  
         } else {
            await bot.giveawaysManager.start(message.channel, {
-                time: ms(giveawayDuration),
+            time: ms(giveawayDuration),
                 prize: giveawayPrize,
-                winnerCount: giveawayWinners,
+                winnerCount: parseInt(giveawayWinners),
                 hostedBy: message.author,
                 messages: {
                     giveaway: `${wideemoji} **GIVEAWAY** ${wideemoji}`,
@@ -90,12 +96,17 @@ if(!yesreq && args[3] != oo) return message.channel.send('That is not a valid ro
                         pluralS: false
                     }
                 },
-                 extraData: {
-                   role:yesreq
-                   },
-               
-            })
-      } 
-		
-	},
-};
+                lastChance: {
+        enabled: true,
+        content: '⚠️ **LAST CHANCE TO ENTER !** ⚠️',
+        threshold: 5000,
+        embedColor: '#FF0000'
+    },
+    exemptMembers: (member) => !member.roles.cache.get(yesreq.id),
+    extraData: {
+      role:yesreq
+    }      
+      })
+	}
+},
+}
