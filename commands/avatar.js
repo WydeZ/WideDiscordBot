@@ -24,7 +24,7 @@ module.exports = {
                         size: 4096
                     })
                 )
-                .setColor('RANDOM')
+                .setColor('ORANGE')
 
             message.channel.send(avatarembed)
          

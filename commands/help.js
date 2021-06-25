@@ -33,7 +33,7 @@ var pog = "`chatbot`, `setchatbotchannel`, `disablechatbotchannel`, `setstarboar
                 .addField('Giveaway🎉', gib)
                 .addField('Other', other)
                 .addField('Awsome Addons!', pog)
-                .setColor('RANDOM')
+                .setColor('ORANGE')
                 .setThumbnail(message.author.displayAvatarURL())
                 .setFooter(`Type ${prefix}help <command-name> to get more info about the command`)
         
@@ -53,7 +53,7 @@ var pog = "`chatbot`, `setchatbotchannel`, `disablechatbotchannel`, `setstarboar
     .addField('Description', `${command.description}`)
       .addField('Usage',  `${command.usage}`)
         .setFooter(`Cooldown: ${command.cooldown || 3} second(s)`)
-    .setColor("RANDOM")
+    .setColor("ORANGE")
     .setThumbnail(bot.user.displayAvatarURL())
         message.channel.send(embedd);
  }

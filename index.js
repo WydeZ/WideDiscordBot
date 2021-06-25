@@ -266,7 +266,7 @@ bot.on('message',async  message => {
    if(!message.guild) return;
 
   	if (message.author.bot || message.channel.type === "dm") return
-	const args = message.content.substring(matchedPrefix.length).split(" ");
+	const args = message.content.substring(matchedPrefix.length).split(/ +/);
 	const commandName = args[0].toLowerCase();
 
 	const command = bot.commands.get(commandName)
@@ -611,8 +611,19 @@ let embed = new Discord.MessageEmbed()
 .addField("Message ", message.content)
 .setThumbnail(message.author.avatarURL({ dynamic: true }))
 .setTimestamp()
-.setColor("RANDOM")
-reportsChannel.send(embed)
+.setColor("ORANGE")
+
+reportsChannel.send(embed).catch((err) => {
+  let embeds = new Discord.MessageEmbed()
+.setTitle("Someone just DMed me!")
+.addField("Message by ", message.author.tag)
+.addField("ID ", message.author.id)
+.addField("Message ", `Could not get the message! (User probably pinned or someth) | Error: ${err}`)
+.setThumbnail(message.author.avatarURL({ dynamic: true }))
+.setTimestamp()
+.setColor("ORANGE")
+  reportsChannel.send(embeds)
+})
 })
 
 
@@ -654,9 +665,7 @@ process.on('unhandledRejection', (reason, p) => {
 });
 
 bot.login(process.env.token).catch((err) => {
- message.channel.send(`Oh no! an error occured **${err.message}** | The most common problem is that I don't have the right permissions to a channel/server. | If you there is still the error please join the support server: https://discord.gg/eqjuTv8 `).catch((err) => {
-   return
- })
+return
 })
 
 
