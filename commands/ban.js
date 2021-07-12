@@ -3,12 +3,12 @@ module.exports = {
 	name: 'ban',
 	description: 'Bans a user',
 	aliases: ['bans'],
-	usage: '!ban <user>',
+	usage: 'ban <user>',
 	cooldown: 1,
 	execute(message, args, bot) {
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[1])
      if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send('I do not have the right permission: Ban Members')
- if (!message.member.hasPermission('BAN_MEMBERS')) return  message.channel.send('You are not allowed to use this command: Ban Members')
+ if (!message.member.hasPermission('BAN_MEMBERS')) return  message.channel.send('You do not have the right permission: Ban Members')
            
 
             if (!member) {

@@ -4,7 +4,7 @@ module.exports = {
 	name: 'battle',
 	description: 'Battle a user',
 	aliases: ['startbattle', 'fight'],
-	usage: '!battle <user>',
+	usage: 'battle <user>',
 	cooldown: 1,
 	execute(message, args, bot) {
     let member = message.mentions.members.first() 

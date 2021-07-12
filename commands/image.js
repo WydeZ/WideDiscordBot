@@ -5,10 +5,10 @@ module.exports = {
 	name: 'image',
 	description: 'Shows an image of your choice',
 	aliases: ['picture', 'img'],
-	usage: '!image <thing>',
+	usage: 'image <word>',
 	cooldown: 1,
 	async execute(message, args, bot) {
-	  if(!args[1]) return message.channel.send('Please provide to me something to search')
+	  if(!args[1]) return message.channel.send('Please provide to me something to search | Usage: image <word>')
     var options = {
         url: "http://results.dogpile.com/serp?qc=images&q=" + `${args[1]}`,
         method: "GET",

@@ -8,7 +8,7 @@ module.exports = {
 	name: 'hack',
 	description:'Hacks the mentioned user (totally real)' ,
 	aliases: ['hacking'],
-	usage: '!hack <user>',
+	usage: 'hack <user>',
 	cooldown: 1,
 		async execute(message, args, bot) {
      const user = message.mentions.users.first();
@@ -21,7 +21,7 @@ module.exports = {
             });
             const member = message.guild.member(user);
             const mostCommon = ["reow", "what", "e", "meh", "kill"]
-            const lastdm = ["Are you sure were gonna go this?", "ahaha got it", "I thought we were supposed to kidnapped him first-", "whoops wrong person", "please tell me you didn't do it"]
+            const lastdm = ["Are you sure were gonna go this?", "ahaha got it", "bye", "whoops wrong person", "please tell me you didn't do it"]
             message.channel.send(`Hacking ${member.user.username} now...`)
                 .then(async (msg) => {
                     setTimeout(async function () {

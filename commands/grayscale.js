@@ -5,7 +5,7 @@ module.exports = {
 	name: 'grayscale',
 	description:'Sends a grayscale image' ,
 	aliases: ['greyscale'],
-	usage: '!grayscale <user(optional)>',
+	usage: 'grayscale <user(optional)>',
 	cooldown: 1,
 		async execute(message, args, bot) {
        if (!message.guild.me.hasPermission("ATTACH_FILES")) return message.channel.send('I do not have the right permission: Attach Files')

@@ -5,7 +5,7 @@ module.exports = {
 	name: 'deepfry',
 	description:'Sends a deepfry image' ,
 	aliases: ['deepfried'],
-	usage: '!deepfry <user(optional)>',
+	usage: !deepfry <user(optional)>',
 	cooldown: 1,
 		async execute(message, args, bot) {
      if (!message.guild.me.hasPermission("ATTACH_FILES")) return message.channel.send('I do not have the right permission: Attach Files')

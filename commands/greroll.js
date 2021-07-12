@@ -5,7 +5,7 @@ module.exports = {
 	name: 'greroll',
 	description: 'Rerolls an ended giveaway' ,
 	aliases: ['rerollgiveaway'],
-	usage: '!greroll <channel id>',
+	usage: 'greroll <channel id>',
 	cooldown: 1,
 	async execute(message, args, bot) {
           if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Wide Giveaways")){
@@ -13,7 +13,7 @@ module.exports = {
           }
 
             // If no message ID or giveaway name is 
-              if(!args[1]) return message.channel.send('Please specify a message ID! | Usage: !greroll <messageid> <winners>')
+              if(!args[1]) return message.channel.send('Please specify a message ID! | Usage: greroll <messageid> <winners>')
 
             // try to found the giveaway with prize then with ID
             let giveaway =

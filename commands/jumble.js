@@ -4,7 +4,7 @@ module.exports = {
 	name: 'jumble',
 	description: 'Bot gives you a jumbled word that you must unscramble in a limited amount of time',
 	aliases: ['scramble', 'jumble-words'],
-	usage: '!links',
+	usage: 'jumble',
 	cooldown: 1,
 		async execute(message, args, bot) {
       const filter = m => m.author.id === message.author.id;

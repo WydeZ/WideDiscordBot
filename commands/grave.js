@@ -4,7 +4,7 @@ module.exports = {
 	name: 'grave',
 	description: 'Send an image with the grave effect',
 	aliases: ['rip', 'oof'],
-	usage: '!grave <user(optional)>',
+	usage: 'grave <user(optional)>',
 	cooldown: 1,
 		async execute(message, args, bot) {
    if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

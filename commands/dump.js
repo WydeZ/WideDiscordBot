@@ -1,10 +1,10 @@
 
 const Discord = require('discord.js')
 module.exports = {
-	name: 'dump',
+	name: 'dewgdwehgdw',
 	description: 'See which people has the specified role' ,
 	aliases: ['rolememberlist'],
-	usage: '!dump <roleID>',
+	usage: 'dump <roleID>',
 	cooldown: 1,
 		async execute(message, args, bot) {
           let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]);

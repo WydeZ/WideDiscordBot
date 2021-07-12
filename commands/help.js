@@ -4,7 +4,7 @@ module.exports = {
 	name: 'help',
 	description: 'List all of my commands or info about a specific command.',
 	aliases: ['commands'],
-	usage: '!help | !help <command name>',
+	usage: 'help | !help <command name>',
 	cooldown: 1,
 	async execute(message, args, bot) {
  const { commands } = message.client
@@ -13,10 +13,10 @@ module.exports = {
   if(prefix === null) prefix = PREFIX;
     if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
 
- var Wide = "`ping`, `poll`, `say`, `8ball`, `rate`, `kill`, `roast`, `urban`, `emojify`, `translate`, `randomnumber`,  `emergency,` `translate`, `ascii`, `hack`, `pepe`, `howgay`, `iq`, `truth`, `dare`, `decode`, `scrabble`"
+ var Wide = "`ping`, `poll`, `say`, `8ball`, `rate`, `roast`, `urban`, `emojify`, `translate`, `randomnumber`,  `emergency,` `translate`, `ascii`, `hack`, `pepe`, `iq`, `truth`, `dare`, `decode`, `scrabble`"
 var funay = "`battle`, `ttt`, `hangman`, `rps`, `quiz`, `snake`, `connectfour`, `pokemon`, `speedgame`, `flaggame`, `wyr`"
 var inf = "`userinfo`, `invite`, `profile`, `vote`, `serverinfo`, `botinfo`, `weather`, `covid`,  `emojiinfo`, `npm`, `define`, `decode`"
-var mod = "`kick`, `ban`, `clear`, `slowmode`, `privatechannel`, `lockchannel,` `unlockchannel`, `openchannel`, `setnickname`, `channeladd`, `channelremove`, `nuke`, `giverole`, `removerole`, `channeldelete`"
+var mod = "`kick`, `ban`, `clear`, `slowmode`, `privatechannel`, `lockchannel,` `unlockchannel`, `openchannel`, `setnickname`, `nuke`, `giverole`, `removerole`, `channeldelete`"
 var gib = "`gstart`, `gedit`, `greroll`, `gdelete`, `gend`, `ginfo`"
 var imagess = "`image`, `gif`, `pat`, `deepfry`, `meme`, `delete`, `trigger`, `trash`, `pixelate`, `grayscale`, `wanted`, `wasted`, `changemymind`, `blur`, `clyde`, `grave`, `inverted`, `achievement`, `magik`, `wide`"
 var other = "`bug`, `report`, `suggestion`, `avatar`, `translate`, `links`, `newprefix`, `embed`, `afk`, `steale`, `eremove`, `decode`, `msgemoji`"
@@ -44,7 +44,7 @@ var pog = "`chatbot`, `setchatbotchannel`, `disablechatbotchannel`, `setstarboar
         const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
 
         if (!command) {
-            return message.reply('Please provide a valid command name. Use !help to see the list of available commands');
+            return message.reply('Please provide a valid command name. Use the help command to see the list of available commands');
         }
 
     const embedd = new Discord.MessageEmbed()

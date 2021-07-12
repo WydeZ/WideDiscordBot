@@ -5,7 +5,7 @@ module.exports = {
 	name: 'blur',
 	description:'Sends a blur image' ,
 	aliases: ['blurred'],
-	usage: '!blur <user(optional>',
+	usage: 'blur <user(optional>',
 	cooldown: 1,
 	async execute(message, args, bot) {
         if (!message.guild.me.hasPermission("ATTACH_FILES")) return message.channel.send('I do not have the right permission: Attach Files')

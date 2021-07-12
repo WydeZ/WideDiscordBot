@@ -1,13 +1,13 @@
 const Discord = require('discord.js')
 module.exports = {
     name: 'eval',
-    description:'Evalute a code' ,
+    description:'Evalute a code (DEVS ONLY)' ,
     aliases: ['ev'],
-    usage: '!eval <code>',
+    usage: 'eval <code>',
     cooldown: 1,
     async execute(message, args, bot) {
          let developers = ['719507348137181254'];
-  if(!developers.includes(message.author.id)) return message.channel.send("ur not the owner");
+  if(!developers.includes(message.author.id)) return 
       let args2 = message.content.split(" ").slice(1).join(' ')
      if(message.author.id === "719507348137181254"){
       if(args2.includes(`process.env.token`)) return message.channel.send('go ask bot owner for the token you cant grab it from me')

@@ -1,6 +1,5 @@
 
 const Discord = require('discord.js')
-const db = require('quick.db')
 module.exports = {
 	name: 'prefix',
 	description:'Shows my prefix' ,
@@ -8,7 +7,10 @@ module.exports = {
 	usage: '!prefix',
 	cooldown: 1,
 	async execute(message, args, bot) {
-          let prefix = await db.get(`prefix_${message.guild.id}`) || "!"
+          let prefix = await gdb.get(`prefix_${message.guild.id}`) || "!"
+             if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
+
+    
   if(prefix === null) prefix = "!";
         const embed = new Discord.MessageEmbed()
             .setTitle("Prefix")

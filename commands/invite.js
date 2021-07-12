@@ -3,7 +3,7 @@ module.exports = {
 	name: 'invite',
 	description: 'Invite links to the bot',
 	aliases: ['inv'],
-	usage: '!invite',
+	usage: 'invite',
 	cooldown: 1,
 	execute(message, args, bot) {
      if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

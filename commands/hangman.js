@@ -4,7 +4,7 @@ module.exports = {
 	name: 'hangman',
 	description: 'Play hangman with friends!',
 	aliases: ['hangm'],
-	usage: '!hangman <channel> <text>',
+	usage: 'hangman <channel> <text>',
 	cooldown: 5,
 		async execute(message, args, bot) {
     
@@ -15,7 +15,7 @@ module.exports = {
      if (!message.guild.me.hasPermission("ADD_REACTIONS")) return message.channel.send('I do not have the right permission: Add Reactions')
 
         const channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1])
-        if(!channel) return message.channel.send('Please specify a channel | Usage: !hangman <channel> <thing>')
+        if(!channel) return message.channel.send('Please specify a channel | Usage: hangman <channel> <thing>')
         const word = args.slice(2).join(" ")
         if(!word) return  message.channel.send('Please specify a word to guess. Usage: !hangman <channel> <thing>')
         if(!channel.viewable) return message.channel.send("I can't access the channel! Please make sure I have send and read message permission in that channel or try a different channel")

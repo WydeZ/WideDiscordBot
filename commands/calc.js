@@ -4,11 +4,11 @@ const math = require('mathjs');
 module.exports = {
 	name: 'wcalc',
 	description:'A calculator' ,
-	aliases: ['wcalculator'],
-	usage: '!wcalc <question>',
+	aliases: ['wcalculator', 'calc', 'calculator'],
+	usage: 'wcalc <question>',
 	cooldown: 1,
 		async execute(message, args, bot) {
-               if (!args[1]) return message.channel.send('Usage: !calc <question> | eg: !calc 1+1')
+               if (!args[1]) return message.channel.send('Usage: calc <question> | eg: calc 1+1')
      let oop = args.slice(1).join(" ")
                 let baby = ['config', ':']
                 for (var i = 0; i < baby.length; i++) {

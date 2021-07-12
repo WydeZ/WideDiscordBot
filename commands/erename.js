@@ -5,7 +5,7 @@ module.exports = {
   name: "erename",
   	description:'Renames an emoji from the server' ,
 	aliases: ['emojirename'],
-	usage: '!erename <emoji> <name>',
+	usage: 'erename <emoji> <name>',
 	cooldown: 1,
 async execute(message, args, bot)  {
     if (!message.member.hasPermission("MANAGE_EMOJIS")) {
@@ -14,8 +14,8 @@ return message.channel.send(":x: | **You Don't Have Permission To Use This Comma
 if (!message.guild.me.hasPermission("MANAGE_EMOJIS")) {
 return message.channel.send(`:x: | **I Don't Have Permission To manage emojis**`)
 }
-if (!args[1]) return message.channel.send("Please specify an emote you want me to rename! | Usage: !erename <emote> <name>");
-if(!args[2]) return message.channel.send('Please specify a name for the emote | Usage: !eremove <emoji> <name>')
+if (!args[1]) return message.channel.send("Please specify an emote you want me to rename! | Usage: erename <emote> <name>");
+if(!args[2]) return message.channel.send('Please specify a name for the emote | Usage: eremove <emoji> <name>')
 let Thinger = args[1].split(":");
 
             let Animated;

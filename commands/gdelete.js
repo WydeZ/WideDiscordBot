@@ -5,7 +5,7 @@ module.exports = {
 	name: 'gdelete',
 	description: 'Deletes an active giveaway' ,
 	aliases: ['deletegiveaway'],
-	usage: '!gdelete <Message ID>',
+	usage: 'gdelete <Message ID>',
 	cooldown: 1,
 		async execute(message, args, bot) {
          if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Wide Giveaways")){

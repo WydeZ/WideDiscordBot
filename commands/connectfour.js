@@ -5,7 +5,7 @@ module.exports = {
 	name: 'connectfour',
 	description:'Play a classic game of connect four!' ,
 	aliases: ['connect-four'],
-	usage: '!connectfour',
+	usage: 'connectfour',
 	cooldown: 1,
 		async execute(message, args, bot) {
      if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

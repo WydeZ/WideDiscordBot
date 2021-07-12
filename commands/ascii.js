@@ -5,10 +5,10 @@ module.exports = {
 	name: 'ascii',
 	description:'Turn the text into ascii' ,
 	aliases: ['asci'],
-	usage: '!ascii <text>',
+	usage: 'ascii <text>',
 	cooldown: 1,
 		async execute(message, args, bot) {
-     if (!args[1]) return message.channel.send('Please provide some text | Usage: !ascii <text>');
+     if (!args[1]) return message.channel.send('Please provide some text | Usage: ascii <text>');
             msg = args.slice(1).join(' ')
             if (msg.length > 13) return message.channel.send('Your text is too long, the maximum character is 13')
 

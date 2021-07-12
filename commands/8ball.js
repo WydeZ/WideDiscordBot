@@ -3,11 +3,11 @@ module.exports = {
 	name: '8ball',
 	description: 'Play 8ball',
 	aliases: ['magicball'],
-	usage: '!8ball <question>',
+	usage: '8ball <question>',
 	cooldown: 1,
 	async execute(message, args, bot) {
     if (!args[1]) {
-                return message.channel.send("Please ask a full question. |Usage: !8ball <question>")
+                return message.channel.send("Please ask a full question. |Usage: 8ball <question>")
             }
             let numbers = Math.floor(Math.random() * 8);
 

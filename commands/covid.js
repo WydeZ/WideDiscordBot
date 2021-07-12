@@ -4,7 +4,7 @@ module.exports = {
 	name: 'covid',
 	description: 'See covid-19 information',
 	aliases: ['creategiveaway', 'giveaway-create', 'create-giveaway'],
-	usage: '!covid <location>',
+	usage: 'covid <location>',
 	cooldown: 1,
 		async execute(message, args, bot) {
   if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
@@ -12,7 +12,7 @@ module.exports = {
             const noArgs = new Discord.MessageEmbed()
                 .setTitle('Missing arguments')
                 .setColor(0xFF0000)
-                .setDescription('You are missing some args (ex: !covid all || !covid Indonesia)')
+                .setDescription('You are missing some args (ex: covid all || covid Indonesia)')
                 .setTimestamp()
 
             if (!args[0]) return message.channel.send(noArgs);

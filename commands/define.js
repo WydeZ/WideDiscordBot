@@ -7,11 +7,11 @@ module.exports = {
 	name: 'define',
 	description:'Gives the definition of something' ,
 	aliases: ['definition', 'meaning', 'meaningof'],
-	usage: '!define <word>',
+	usage: 'define <word>',
 	cooldown: 1,
 		async execute(message, args, bot) {
       var word = args[1]
-      if(!word) return message.channel.send('Please specify a word for me to define! | Usage: !define <word>')
+      if(!word) return message.channel.send('Please specify a word for me to define! | Usage: define <word>')
       dowl.define(word).then(function(result){
         const embed = new Discord.MessageEmbed()
         .setTitle(`${word.toLowerCase()}`)

@@ -5,13 +5,13 @@ module.exports = {
 	name: 'emojiremove',
 	description:'Removes an emoji from the server' ,
 	aliases: ['eremove'],
-	usage: '!eremove <emoji>',
+	usage: 'eremove <emoji>',
 	cooldown: 1,
 		async execute(message, args, bot) {
        if (!message.guild.me.hasPermission("MANAGE_EMOJIS")) return message.channel.send('I do not have the right permission: Manage Emojis')
         if (!message.member.hasPermission("MANAGE_EMOJIS")) return message.channel.send('You do not have the right permission: Manage Emojis')
     
-  if (!args[1]) return message.channel.send("Please specify an emote to remove! | Usage: !eremove <emoji>");
+  if (!args[1]) return message.channel.send("Please specify an emote to remove! | Usage: eremove <emoji>");
     let Thinger = args[1].split(":");
 
             let Animated;

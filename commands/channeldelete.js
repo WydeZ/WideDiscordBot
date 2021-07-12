@@ -4,7 +4,7 @@ module.exports = {
 	name: 'channeldelete',
 	description: 'Delets a channel',
 	aliases: ['deletechannel', 'chdel', 'delch', 'channeldel','deletech'],
-	usage: '!channeldelete',
+	usage: 'channeldelete',
 	cooldown: 1,
 		async execute(message, args, bot) {
     if (!message.guild.me.hasPermission("MANAGE_GUILD")) return message.channel.send('I do not have the right permission: Manage Server')

@@ -6,7 +6,7 @@ module.exports = {
 	name: 'flaggame',
 	description:'Bot sends a flag and you have to guess the flag in a limited amount of time' ,
 	aliases: ['guesstheflag'],
-	usage: '!flaggame',
+	usage: 'flaggame',
 	cooldown: 1,
 		async execute(message, args, bot) {
     if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

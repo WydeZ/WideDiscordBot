@@ -4,7 +4,7 @@ module.exports = {
 	name: 'embed',
 	description: 'Makes an embed' ,
 	aliases: ['embedmaker'],
-	usage: '!embed',
+	usage: 'embed',
 	cooldown: 1,
 		async execute(message, args, bot) {
        if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

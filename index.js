@@ -253,7 +253,7 @@ const cooldowns = new Discord.Collection();
 
 bot.on('message',async  message => {
   if(message.channel.type === "dm") return
- let prefix = await db.get(`prefix_${message.guild.id}`) || "!"
+ let prefix = await gdb.get(`prefix_${message.guild.id}`) || "!"
 
  if(prefix === null) prefix = PREFIX;
 
@@ -542,8 +542,8 @@ bot.on('message', async message => {
 
 bot.on("message", async message => {
 if(message.channel.type === "dm") return
-        let channel = db.fetch(`chatbot_${message.guild.id}`);
-     if(!channel) return;
+        let channel = await gdb.get(`chatbot_${message.guild.id}`);
+     if(!channel) return
         var sChannel = message.guild.channels.cache.get(channel);
         if(!sChannel) return
      if (message.author.bot) return;
@@ -616,8 +616,6 @@ let embed = new Discord.MessageEmbed()
 reportsChannel.send(embed).catch((err) => {
   let embeds = new Discord.MessageEmbed()
 .setTitle("Someone just DMed me!")
-.addField("Message by ", message.author.tag)
-.addField("ID ", message.author.id)
 .addField("Message ", `Could not get the message! (User probably pinned or someth) | Error: ${err}`)
 .setThumbnail(message.author.avatarURL({ dynamic: true }))
 .setTimestamp()

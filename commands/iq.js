@@ -3,7 +3,7 @@ module.exports = {
 	name: 'iq',
 	description: 'Shows how smart you are',
 	aliases: ['howsmart'],
-	usage: '!iq <user(optional)>',
+	usage: 'iq <user(optional)>',
 	cooldown: 1,
 	execute(message, args, bot) {
      if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

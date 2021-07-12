@@ -1,11 +1,12 @@
 
 const Discord = require('discord.js')
-const db = require('quick.db')
+const { Database } = require("quick.replit");
+const gdb = new Database(process.env.REPLIT_DB_URL)
 module.exports = {
 	name: 'disablechatbotchannel',
 	description:'Disables a ChatBot Channel',
 	aliases: ['disablechatch'],
-	usage: '!disablechatbotchannel <channel>',
+	usage: 'disablechatbotchannel <channel>',
 	cooldown: 3,
 		async execute(message, args, bot) {
 if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send({embed: {
@@ -13,7 +14,7 @@ if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send({e
             title: `You do not have the required Permissions! - Manage Server `
         }})
     try {
-        let a = db.fetch(`chatbot_${message.guild.id}`)
+        let a = gdb.fetch(`chatbot_${message.guild.id}`)
 
         if (!a) {
             return message.channel.send({embed: {

@@ -2,7 +2,7 @@
 const Discord = require('discord.js')
 const hastebin = require('hastebin-gen')
 module.exports = {
-	name: 'discrim',
+	name: 'swdgewdveg',
 	description:'Shows the people who has the same discrim as you' ,
 	aliases: ['sametag'],
 	usage: '!discrim <your tag>',

@@ -1,15 +1,17 @@
 const Discord = require('discord.js')
-const db = require('quick.db')
+const { Database } = require("quick.replit");
+const gdb = new Database(process.env.REPLIT_DB_URL)
+
 module.exports = {
 	name: 'chatbot',
 	description: 'Shows ChatBot\'s config',
 	aliases: ['chatb'],
-	usage: '!chatbot',
+	usage: 'chatbot',
 	cooldown: 1,
 		async execute(message, args, bot) {
        if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
        
-        let prefix = await db.get(`prefix_${message.guild.id}`) || "!"
+        let prefix = await gdb.get(`prefix_${message.guild.id}`) || "!"
   if(prefix === null) prefix = "!";
       const embedd = new Discord.MessageEmbed()
         .setThumbnail(bot.user.avatarURL())
@@ -31,7 +33,7 @@ module.exports = {
         .setColor("BLURPLE")
         .setFooter('Credits to MoriDelta#6969')
       
-       let channel1 = db.fetch(`chatbot_${message.guild.id}`);
+       let channel1 = await gdb.get(`chatbot_${message.guild.id}`);
       if(!channel1) return message.channel.send(embedd)
       var sChannel = message.guild.channels.cache.get(channel1);
       let embedvch = "<#" + sChannel.id + ">"

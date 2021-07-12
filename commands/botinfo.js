@@ -5,7 +5,7 @@ module.exports = {
 	name: 'botinfo',
 	description: 'Shows general information about me',
 	aliases: ['botinformation'],
-	usage: '!botinfo',
+	usage: 'botinfo',
 	cooldown: 1,
 		async execute(message, args, bot) {
      if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

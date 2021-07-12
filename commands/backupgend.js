@@ -4,7 +4,7 @@ module.exports = {
 	name: 'backupgend',
 	description:'gend backup' ,
 	aliases: ['bgend'],
-	usage: '!bgend <messageID> <number of winners>',
+	usage: 'bgend <messageID> <number of winners>',
 	cooldown: 1,
 		async execute(message, args, bot) {
         if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Wide Giveaways")){

@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
-const db = require('quick.db')
+const { Database } = require("quick.replit");
+const gdb = new Database(process.env.REPLIT_DB_URL)
+
 module.exports = {
   name: 'setchatbotchannel',
         description: 'Sets a ChatBot Channel',
@@ -12,7 +14,7 @@ module.exports = {
             title: `You do not have the required Permissions! - Manage Server `
         }})
 if (!args[1]) {
-  let b = await db.fetch(`chatbot_${message.guild.id}`);
+  let b = await gdb.fetch(`chatbot_${message.guild.id}`);
   let channelName = message.guild.channels.cache.get(b);
   if (message.guild.channels.cache.has(b)) {
     return message.channel.send(
@@ -21,7 +23,7 @@ if (!args[1]) {
   } else
     return message.channel.send({embed: {
             color: 'RED',
-            title: `Please Enter a Channel ID or ID to set`
+            title: `Please Enter a Channel ID or ID to set | Usage: setchatbotchannel (channel)`
         }})
 }
     let channel = message.mentions.channels.first() || bot.guilds.cache.get(message.guild.id).channels.cache.get(args[1]) || message.guild.channels.cache.find(c => c.name.toLowerCase() === args.slice(1).join(' ').toLocaleLowerCase());
@@ -33,7 +35,7 @@ if (!args[1]) {
         if(!channel.viewable) return message.channel.send("I can't see that channel!")
 
     try {
-        let a = await db.fetch(`chatbot_${message.guild.id}`)
+        let a = await gdb.fetch(`chatbot_${message.guild.id}`)
 
         if (channel.id === a) {
             return message.channel.send({embed: {
@@ -42,7 +44,7 @@ if (!args[1]) {
         }})
         } else {
             bot.guilds.cache.get(message.guild.id).channels.cache.get(channel.id).send(`**ChatBot Channel Set!**`)
-            db.set(`chatbot_${message.guild.id}`, channel.id)
+            gdb.set(`chatbot_${message.guild.id}`, channel.id)
 
            message.channel.send('Credits to Mori Delta#6969' ,{embed: {
             color: 'GREEN',

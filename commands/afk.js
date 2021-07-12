@@ -5,7 +5,7 @@ module.exports = {
 	name: 'afk',
 	description:'Makes you go AFK' ,
 	aliases: ['afks'],
-	usage: '!afk <reason(optional)>',
+	usage: 'afk <reason(optional)>',
 	cooldown: 1,
 		async execute(message, args, bot) {
     

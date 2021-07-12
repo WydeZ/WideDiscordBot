@@ -4,19 +4,19 @@ module.exports = {
 	name: 'giverole',
 	description: 'Gives a role to the mentioned user',
 	aliases: ['addrole'],
-	usage: '!giverole <user> <name of role>',
+	usage: 'giverole <user> <name of role>',
 	cooldown: 1,
 		async execute(message, args, bot) {
     if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("You do not have permission to use this command: Manage Roles")
             if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send('I do not have the right permission: Manage Roles')
             const targetUser = message.mentions.users.first() || message.guild.members.cache.get(args[1]);
             if (!targetUser) {
-                message.reply('Please specify someone to give a role to. | Usage: !giverole {member} {role name}')
+                message.reply('Please specify someone to give a role to. | Usage: giverole {member} {role name}')
                 return
             }
 
             const roleName = args.slice(2).join(" ")
-            if (!roleName) return message.channel.send('Please specify a role name Usage: !giverole {member} {role name}')
+            if (!roleName) return message.channel.send('Please specify a role name Usage: giverole {member} {role name}')
             const { guild } = message
 
             const role = guild.roles.cache.find((role) => {

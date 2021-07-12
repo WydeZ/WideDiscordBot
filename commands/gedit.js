@@ -5,7 +5,7 @@ module.exports = {
 	name: 'gedit',
 	description: 'Edits an active giveaway' ,
 	aliases: ['editgiveaway'],
-	usage: '!gedit <Message ID> <time> <winners> <prize>',
+	usage: 'gedit <Message ID> <time> <winners> <prize>',
 	cooldown: 1,
 		async execute(message, args, bot) {
            if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Wide Giveaways")){
@@ -13,9 +13,9 @@ module.exports = {
            }
             let messageID = args[1];
             let giveawayDuration = args[2];
-            if (!giveawayDuration || isNaN(ms(giveawayDuration))) return message.channel.send('Pleae provide a valid duration | ex: !gedit {messageid} 30s 3 nitro');
+            if (!giveawayDuration || isNaN(ms(giveawayDuration))) return message.channel.send('Pleae provide a valid duration | ex: gedit {messageid} 30s 3 nitro');
             let giveawayWinners = args[3];
-            if (isNaN(giveawayWinners) || (parseInt(giveawayWinners) <= 0)) return message.channel.send('Please provide a valid number of winners! | ex: !gedit {messageid} 30s 3 nitro')
+            if (isNaN(giveawayWinners) || (parseInt(giveawayWinners) <= 0)) return message.channel.send('Please provide a valid number of winners! | ex: gedit {messageid} 30s 3 nitro')
              let giveaway =
                 // Search with giveaway prize
                 bot.giveawaysManager.giveaways.find((g) => g.prize === args.slice(2).join(' ')) ||

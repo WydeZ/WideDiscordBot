@@ -4,12 +4,12 @@ module.exports = {
 	name: 'gif',
 	description: 'Gives a gif of the selected topic',
 	aliases: ['search-gif'],
-	usage: '!gif <thing>',
+	usage: 'gif <word>',
 	cooldown: 1,
 	async execute(message, args, bot) {
       if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
             let term = args.slice(1).join(" ")
-            if (!term) return message.channel.send('What gif do you want me to give? | Usage: !gif <thing>')
+            if (!term) return message.channel.send('What gif do you want me to give? | Usage: gif <word>')
 
             let oop = args.slice(1).join(" ")
                 let baby = ['nude', 'boob', 'sex', 'porn', 'dick', 'penis']
