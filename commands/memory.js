@@ -1,11 +1,10 @@
 
 const Discord  = require("discord.js");
-
 module.exports = {
   name: "memory",
   description: "Shows you how much memory usage of the bot",
   aliases: ['memories'],
-usage: '!memory',
+usage: 'memory',
 cooldown: 1,
   execute(message, args, bot) {
 const Embed = new Discord.MessageEmbed()

@@ -3,11 +3,11 @@ module.exports = {
 	name: 'rps',
 	description: 'Play rock paper scissors with a me!',
 	aliases: ['rockpaperscissors'],
-	usage: '!rps <rock/paper/scissors>',
+	usage: 'rps <rock/paper/scissors>',
 	cooldown: 1,
 	execute(message, args, bot) {
     if (!args[1]) {
-                return message.channel.send('Please include your choice | Usage: !rps {rock/paper/scissors}');
+                return message.channel.send('Please include your choice | Usage: rps {rock/paper/scissors}');
             }
 
             let choices = ['rock', 'paper', 'scissors'];

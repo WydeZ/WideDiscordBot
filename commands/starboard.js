@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require('quick.db')
 module.exports = {
   name: "starboard",
-  usage: "!starboard",
+  usage: "starboard",
   description: "Shows information about starboard",
   aliases:["starb"],
   async execute(message, args, bot) {

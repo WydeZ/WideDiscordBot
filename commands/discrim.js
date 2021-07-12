@@ -4,7 +4,7 @@ const hastebin = require('hastebin-gen')
 module.exports = {
 	name: 'swdgewdveg',
 	description:'Shows the people who has the same discrim as you' ,
-	aliases: ['sametag'],
+	aliases: ['dfsfds'],
 	usage: '!discrim <your tag>',
 	cooldown: 1,
 		async execute(message, args, bot) {

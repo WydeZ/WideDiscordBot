@@ -3,7 +3,7 @@ module.exports = {
 	name: 'setnickname',
 	description: 'Set a nickname for a person',
 	aliases: ['sn'],
-	usage: '!setnickname <user> <new-nickname>',
+	usage: 'setnickname <user> <new-nickname>',
 	cooldown: 1,
 	execute(message, args, bot) {
     if (!message.guild.me.hasPermission("MANAGE_NICKNAMES")) return message.channel.send(`I do not have the right permission: Manage Nickname`)
@@ -23,7 +23,7 @@ if(message.mentions.members.first().roles.highest.position > message.member.role
             person.setNickname(nicks).then(() => {
                 message.channel.send(`I have succesfully renamed the user`)
             }).catch((err) => {
-                message.channel.send("I was unable to fulfill your request. (Bug Maybe? Report it using the !bug command) Make sure I have the higher role than the mentioned user.")
+                message.channel.send("I was unable to fulfill your request. (Bug Maybe? Report it using the bug command) Make sure I have the higher role than the mentioned user.")
             })
   
 	

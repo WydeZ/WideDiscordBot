@@ -5,7 +5,7 @@ module.exports = {
 	name: 'speedgame',
 	description:'A speed typing game' ,
 	aliases: ['typinggame', 'fast'],
-	usage: '!speedgame',
+	usage: 'speedgame',
 	cooldown: 1,
 		async execute(message, args, bot) {
     if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

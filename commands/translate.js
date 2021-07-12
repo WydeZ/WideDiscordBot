@@ -5,7 +5,7 @@ module.exports = {
 	name: 'translate',
 	description:'Translate the text to a different langauge' ,
 	aliases: ['translation'],
-	usage: '!translate <language> <text>',
+	usage: 'translate <language> <text>',
 	cooldown: 1,
 	async execute(message, args, bot) {
     if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
@@ -14,7 +14,7 @@ module.exports = {
                     return message.reply("Command Usage: `translate <Language> <Text>`")
                 }
                 if (!args[1]) return message.channel.send('You need to provide a language | Usage: !translate {language} {text}')
-                if (!args.slice(2).join(" ")) return message.channel.send('You need to provide a text to translate | Usage: !translate {language} {text}')
+                if (!args.slice(2).join(" ")) return message.channel.send('You need to provide a text to translate | Usage: translate {language} {text}')
 
                 const result = await translate(args.slice(2).join(' '), { to: args[1] });
 

@@ -1,12 +1,11 @@
 const Discord = require('discord.js');
 const { Database } = require("quick.replit");
 const gdb = new Database(process.env.REPLIT_DB_URL)
-
 module.exports = {
   name: 'setchatbotchannel',
         description: 'Sets a ChatBot Channel',
         aliases: ["setchatch"], 
-        usage: '!setchatbotchannel <channel>',
+        usage: 'setchatbotchannel <channel>',
 	cooldown: 3,
 	async execute(message, args, bot) {
   if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send({embed: {

@@ -3,7 +3,7 @@ module.exports = {
 	name: 'serverinfo',
 	description: 'Send general information about the server',
 	aliases: ['server-information', 'infoserver'],
-	usage: '!serverinfo',
+	usage: 'serverinfo',
 	cooldown: 1,
 	execute(message, args, bot) {
      if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

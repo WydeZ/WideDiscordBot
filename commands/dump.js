@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
 	name: 'dewgdwehgdw',
 	description: 'See which people has the specified role' ,
-	aliases: ['rolememberlist'],
+	aliases: ['sdcs'],
 	usage: 'dump <roleID>',
 	cooldown: 1,
 		async execute(message, args, bot) {

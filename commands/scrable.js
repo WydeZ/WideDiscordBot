@@ -3,8 +3,8 @@ const Discord = require('discord.js')
 module.exports = {
 	name: 'scrabble',
 	description: 'Scrabble a word',
-	aliases: ['scrb', 'scrab'],
-	usage: '!scrabble <text>',
+	aliases: ['scrb', 'scrab', 'unscrabble'],
+	usage: 'scrabble <text>',
 	cooldown: 1,
 	execute(message, args, bot) {
      let arg = message.content.split(" ").slice(1).join(" ")
@@ -16,7 +16,7 @@ module.exports = {
         .setColor('GREEN')
        
        message.channel.send(embed).catch((err) => {
-         message.channel.send('I was unable to fulfill your request. | It could mean no words were found | Make sure you use alphabetical letters. | Bug Maybe? Report it using the !bug command.')
+         message.channel.send('I was unable to fulfill your request. | It could mean no words were found | Make sure you use alphabetical letters. | Bug Maybe? Report it using the bug command.')
        })
 	
 	},

@@ -4,7 +4,7 @@ module.exports = {
 	name: 'slowmode',
 	description: 'Make the channel have slowmode' ,
 	aliases: ['slow', 'sm'],
-	usage: '!slowmode <number> | !slowmode off',
+	usage: 'slowmode <number> | slowmode off',
 	cooldown: 1,
 	execute(message, args, bot) {
      const slowchannel = message.mentions.channels.first()
@@ -15,10 +15,10 @@ module.exports = {
                     message.channel.send('I have succesfully turned off slowmode')
                 })
             } else
-                if (!args[1]) return message.channel.send('How many seconds do you want the slowmode to be?')
+                if (!args[1]) return message.channel.send('How many seconds do you want the slowmode to be? | Usage: slowmdoe <number/off>')
             if (!slowchannel) {
                 let hi = args[1]
-                if (isNaN(hi)) return message.channel.send('It needs to be a number')
+                if (isNaN(hi)) return message.channel.send('It needs to be a number | Usage: slowmdoe <number/off>')
                 if (hi > 21600) return message.channel.send('It cannot be greater than 21600 seconds or 6 hours')
                 if (hi < 0) return message.channel.send('It needs to be greater than 0')
 

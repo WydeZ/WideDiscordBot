@@ -5,7 +5,7 @@ module.exports = {
 	name: 'truth',
 	description:'Its like truth or dare' ,
 	aliases: ['truths'],
-	usage: '!truth',
+	usage: 'truth',
 	cooldown: 1,
 		async execute(message, args, bot) {
       if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

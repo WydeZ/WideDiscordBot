@@ -5,7 +5,7 @@ module.exports = {
 	name: 'stealemoji',
 	description:'Steals a custom emoji then puts it in the server' ,
 	aliases: ['steale', 'steal'],
-	usage: '!steale <emoji> <name>',
+	usage: 'steale <emoji> <name>',
 	cooldown: 1,
 		async execute(message, args, bot) {
        if (!message.guild.me.hasPermission("MANAGE_EMOJIS")) return message.channel.send('I do not have the right permission: Manage Emojis')
@@ -32,17 +32,13 @@ let emoji = { name: "" };
        emoji.animated ? "gif" : "png"
 }`
 } else { 
-  if (!name) return message.channel.send("Please provide a name for the emoji! | Usage: !steal  <emoji/link> <name>");
+  if (!name) return message.channel.send("Please provide a name for the emoji! | Usage: steal <emoji/link> <name>");
   Link = message.attachments.first() ? message.attachments.first().url : emote;  }
             message.guild.emojis.create(
                 `${Link}`,
                 `${`${name || emoji.name}`}`
             ).then(em => message.channel.send(`Succesfully added ${em.toString()}!`)).catch(error => {
                  return message.channel.send(`An error has occured!\n\n**Possible Reasons:**\n\`\`\`- This server has reached the emojis limit\n- The bot doesn't have permissions.\n- The emojis size is too big \n - That emoji is a default emoji that can be used without having nitro!.\`\`\``)
-})
-
-      
-    
-              
+})          
 	},
 };

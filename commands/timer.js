@@ -2,10 +2,10 @@
 const Discord = require('discord.js')
 const ms = require('ms')
 module.exports = {
-	name: 'timer',
+	name: 'dewhfbwe',
 	description:'Makes a timer and will ping when the timer ends' ,
 	aliases: ['timers'],
-	usage: '!timer <time>',
+	usage: 'timer <time>',
 	cooldown: 1,
 	execute(message, args, bot) {
      const person = message.author

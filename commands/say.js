@@ -3,7 +3,7 @@ module.exports = {
 	name: 'say',
 	description: 'The bot will say something you choose',
 	aliases: ['speak'],
-	usage: '!say <text>',
+	usage: 'say <text>',
 	cooldown: 1,
 	execute(message, args, bot) {
      let arg = message.content.split(" ").slice(1).join(" ")

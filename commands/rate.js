@@ -4,7 +4,7 @@ module.exports = {
 	name: 'rate',
 	description:'Rates you or the person you mentioned' ,
 	aliases: ['rating'],
-	usage: '!rate <user(optional)>',
+	usage: 'rate <user(optional)>',
 	cooldown: 1,
 	execute(message, args, bot) {
     let number = Math.floor(Math.random() * 101)

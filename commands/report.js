@@ -3,7 +3,7 @@ module.exports = {
 	name: 'report',
 	description: 'Reports a person to the bot support team',
 	aliases: ['reports'],
-	usage: '!report <user> <reason>',
+	usage: 'report <user> <reason>',
 	cooldown: 1,
 	execute(message, args, bot) {
      let target = message.mentions.members.first()

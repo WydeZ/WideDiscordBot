@@ -22,7 +22,7 @@ module.exports = {
    
       await db.set(`starboardchan_${message.guild.id}`, null)
       message.channel.send(
-        "The starboard channel has been reset since no channel was provided | Usage: !setstarboard <#channel>"
+        "The starboard channel has been reset since no channel was provided | Usage: setstarboard <#channel>"
       );
     } else {
 

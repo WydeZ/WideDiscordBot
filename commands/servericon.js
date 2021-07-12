@@ -3,7 +3,7 @@ module.exports = {
 	name: 'servericon',
 	description: 'Sends Image of the Server Icon',
 	aliases: ['serverpfp', 'infoserver'],
-	usage: '!servericon',
+	usage: 'servericon',
 	cooldown: 1,
 	execute(message, args, bot) {
      if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

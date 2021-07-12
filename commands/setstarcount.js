@@ -15,7 +15,7 @@ module.exports = {
     if(args[1] > 26) return message.reply('The number must be below 25')
     
     if (!channel) {
-    message.channel.send('Please provide a number! | Usage: !setstarcount <number> or !setstarcount delete to delete the star count')
+    message.channel.send('Please provide a number! | Usage: setstarcount <number> or setstarcount delete to delete the star count')
   
     }
     const e = parseInt(channel)
