@@ -5,10 +5,11 @@ module.exports = {
 	name: 'pokemon',
 	description:'Bot will send a pokemon image, and you have to guess what it is!' ,
 	aliases: ['pokemongame'],
-	usage: '!pokemon',
+	usage: 'pokemon',
 	cooldown: 1,
 		async execute(message, args, bot) {
 if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
+     if (!message.guild.me.hasPermission("ATTACH_FILES")) return message.channel.send('I do not have the right permission: Attach Files')
             const pokemon = await Spawn().catch(e => { });
             if (!pokemon) return message.channel.send("Opps! Something went wrong, please try again later :( | Bug Maybe? Report it using the !bug command OR join our support server https://discord.gg/eqjuTv8");
             const filter = m => m.author.id === message.author.id;

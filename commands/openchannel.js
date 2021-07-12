@@ -4,7 +4,7 @@ module.exports = {
 	name: 'openchannel',
 	description:'Makes the channel public (Visible to the public or a certain role)' ,
 	aliases: ['opench'],
-	usage: '!openchannel <role(optional)>',
+	usage: 'openchannel <role(optional)>',
 	cooldown: 1,
 	execute(message, args, bot) {
 const openrole = message.guild.roles.everyone

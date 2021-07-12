@@ -5,7 +5,7 @@ module.exports = {
 	name: 'pixelate',
 	description:'Sends a pixelated image' ,
 	aliases: ['pixel', 'pixelated'],
-	usage: '!pixelate <user(optional)>',
+	usage: 'pixelate <user(optional)>',
 	cooldown: 1,
 		async execute(message, args, bot) {
          if (!message.guild.me.hasPermission("ATTACH_FILES")) return message.channel.send('I do not have the right permission: Attach Files')

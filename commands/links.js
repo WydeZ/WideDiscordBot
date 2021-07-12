@@ -2,8 +2,8 @@ const Discord = require('discord.js')
 module.exports = {
 	name: 'links',
 	description: 'Links related to the bot',
-	aliases: ['link', 'support', 'website'],
-	usage: '!links',
+	aliases: ['link', 'support', 'website', 'server'],
+	usage: 'links',
 	cooldown: 1,
 	execute(message, args, bot) {
  if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

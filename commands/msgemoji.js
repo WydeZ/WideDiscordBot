@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: "msgemoji",
-  usage: "!msgemoji",
+  usage: "msgemoji",
   description: "Finds an emoji from the last message sent in the channel!",
   aliases: ['emojimsg', 'emsg', 'messageemoji', 'emojimessage'],
   async execute( message, args, bot) {

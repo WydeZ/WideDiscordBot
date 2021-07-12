@@ -1,13 +1,13 @@
-
 const Discord = require('discord.js')
 module.exports = {
 	name: 'pepe',
 	description:'Send a random picture of a pepe' ,
 	aliases: ['peep'],
-	usage: '!pepe',
+	usage: 'pepe',
 	cooldown: 1,
 	execute(message, args, bot) {
    if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
+   if (!message.guild.me.hasPermission("ATTACH_FILES")) return message.channel.send('I do not have the right permission: Attach Files')
             let pepe1 = new Discord.MessageEmbed()
                 .setColor("#00ff00")
                 .setImage("https://cdn.discordapp.com/emojis/428556352915505165.png?v=1");

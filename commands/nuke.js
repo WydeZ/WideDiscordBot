@@ -4,7 +4,7 @@ module.exports = {
 	name: 'nuke',
 	description: 'Nukes a channel (Deletes the channel then making the same channel with the same posiiton and permission)',
 	aliases: ['nukes'],
-	usage: '!nuke',
+	usage: 'nuke',
 	cooldown: 1,
 	execute(message, args, bot) {
     if (!message.guild.me.hasPermission("MANAGE_GUILD")) return message.channel.send('I do not have the right permission: Manage Server')

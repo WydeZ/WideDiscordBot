@@ -5,7 +5,7 @@ module.exports = {
   name: "magik",
   aliases: ["magic", "majik"],
   description: "Makes an avatar *magik*",
-  usage: "!magik <user(optional)>",
+  usage: "magik <user(optional)>",
   async execute(message, args, bot)  {
     if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
     message.channel.send('Please Wait **This may take a while**')

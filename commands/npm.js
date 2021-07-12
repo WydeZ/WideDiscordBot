@@ -4,7 +4,7 @@ module.exports = {
 	name: 'npm',
 	description:'Shows you information about an npm package' ,
 	aliases: ['npminfo'],
-	usage: '!npm <package name>',
+	usage: 'npm <package name>',
 	cooldown: 1,
 	async execute(message, args, bot) {
    if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
@@ -14,7 +14,7 @@ module.exports = {
  const package = args[1];
         if(!package) {
             return message.channel.send(
-                ':x: Please provide a valid package.',
+                ':x: Please provide a valid package. | Usage: npm <package name>',
             );
         }
 

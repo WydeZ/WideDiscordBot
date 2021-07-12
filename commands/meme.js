@@ -2,9 +2,9 @@ const Discord = require('discord.js')
 const randomPuppy = require('random-puppy');
 module.exports = {
 	name: 'meme',
-	description: 'Reports a person to the bot support team',
+	description: 'Sends a meme',
 	aliases: ['funnymeme'],
-	usage: '!meme',
+	usage: 'meme',
 	cooldown: 1,
 	async execute(message, args, bot) {
      if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

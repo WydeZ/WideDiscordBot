@@ -3,7 +3,7 @@ module.exports = {
 	name: 'ping',
 	description: 'Shows the ping and API latency of the bot',
 	aliases: ['latency'],
-	usage: '!ping',
+	usage: 'ping',
 	cooldown: 1,
 		async execute(message, args, bot) {
 

@@ -1,13 +1,11 @@
 
 const Discord = require('discord.js')
 const api = require('pet-pet-gif')
-
 module.exports = {
-
 	name: 'pat',
 	description: 'Pat a person' ,
 	aliases: ['pats'],
-	usage: '!pat <user(optional)>',
+	usage: 'pat <user(optional)>',
 	cooldown: 1,
 	async execute(message, args, bot) {
     message.channel.send('Please wait, this may take a while')
