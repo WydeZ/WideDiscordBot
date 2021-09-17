@@ -13,13 +13,13 @@ module.exports = {
   if(prefix === null) prefix = PREFIX;
     if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
 
- var Wide = "`ping`, `poll`, `say`, `8ball`, `rate`, `roast`, `urban`, `emojify`, `translate`, `randomnumber`,  `emergency,` `translate`, `ascii`, `hack`, `pepe`, `iq`, `truth`, `dare`, `decode`, `scrabble`"
+ var Wide = "`ping`, `poll`, `spoll`, `say`, `8ball`, `rate`, `roast`, `urban`, `emojify`, `translate`, `randomnumber`,  `emergency,` `translate`, `ascii`, `hack`, `pepe`, `iq`, `truth`, `dare`, `decode`, `scrabble`"
 var funay = "`battle`, `ttt`, `hangman`, `rps`, `quiz`, `snake`, `connectfour`, `pokemon`, `speedgame`, `flaggame`, `wyr`"
-var inf = "`userinfo`, `invite`, `profile`, `vote`, `serverinfo`, `botinfo`, `weather`, `covid`,  `emojiinfo`, `npm`, `define`, `decode`"
+var inf = "`invite`, `profile`, `vote`, `serverinfo`, `botinfo`, `weather`, `covid`,  `emojiinfo`, `npm`, `define`, `decode`"
 var mod = "`kick`, `ban`, `clear`, `slowmode`, `privatechannel`, `lockchannel,` `unlockchannel`, `openchannel`, `setnickname`, `nuke`, `giverole`, `removerole`, `channeldelete`"
 var gib = "`gstart`, `gedit`, `greroll`, `gdelete`, `gend`, `ginfo`"
 var imagess = "`image`, `gif`, `pat`, `deepfry`, `meme`, `delete`, `trigger`, `trash`, `pixelate`, `grayscale`, `wanted`, `wasted`, `changemymind`, `blur`, `clyde`, `grave`, `inverted`, `achievement`, `magik`, `wide`"
-var other = "`bug`, `report`, `suggestion`, `avatar`, `translate`, `links`, `newprefix`, `embed`, `afk`, `steale`, `eremove`, `decode`, `msgemoji`"
+var other = "`bug`, `report`, `suggestion`, `avatar`, `translate`, `links`, `newprefix`, `embed`, `afk`, `steale`, `eremove`, `decode`, `msgemoji`, `poll`, `spoll`, "
 var pog = "`chatbot`, `setchatbotchannel`, `disablechatbotchannel`, `setstarboard`, `setstarcount`, `starboard`"
  if(!args[1]){
 

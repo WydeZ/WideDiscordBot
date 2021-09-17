@@ -5,7 +5,7 @@ module.exports = {
 	name: 'wasted',
 	description:'Sends a wasted image' ,
 	aliases: ['danger'],
-	usage: '!wasted <user(optional>',
+	usage: 'wasted <user(optional>',
 	cooldown: 1,
 		async execute(message, args, bot) {
         if (!message.guild.me.hasPermission("ATTACH_FILES")) return message.channel.send('I do not have the right permission: Attach Files')

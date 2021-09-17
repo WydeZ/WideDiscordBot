@@ -1,4 +1,5 @@
-
+const { Database } = require("quick.replit");
+const gdb = new Database(process.env.REPLIT_DB_URL)
 const Discord = require('discord.js')
 module.exports = {
 	name: 'prefix',

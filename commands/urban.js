@@ -6,7 +6,7 @@ module.exports = {
 	name: 'urban',
 	description:'Search a word in the urban dictionary' ,
 	aliases: ['urbandictionary'],
-	usage: '!urban <word>',
+	usage: 'urban <word>',
 	cooldown: 1,
 	async execute(message, args, bot) {
        if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
@@ -14,7 +14,7 @@ module.exports = {
 
             if (!args.slice(1).join(" ")) return message.channel.send(new Discord.MessageEmbed()
                 .setColor("RANDOM")
-                .setDescription(`You need to specify something you want to search the urban dictionary`)
+                .setDescription(`You need to specify something you want to search in the urban dictionary | Usage: urban <word>`)
             )
             const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${searchString}`).then(response => response.json())
             try {

@@ -29,12 +29,12 @@ module.exports = {
   
  let winners = args[2]
 
-  if(!winners) return message.channel.send('Please specify a winner!')
-  if(isNaN(winners)) return message.channel.send('The winners must be a number!')
-  if(parseInt(winners) < 0) return message.channel.send('The winners must be atleast 1!')
-   if(parseInt(winners) > 10) return message.channel.send('The winners must be less than 10!')
+  if(!winners) return message.channel.send('Please specify a winner!| Usage: greroll <messageid> <winners>')
+  if(isNaN(winners)) return message.channel.send('The winners must be a number! | Usage: greroll <messageid> <winners>')
+  if(parseInt(winners) < 0) return message.channel.send('The winners must be atleast 1! | Usage: greroll <messageid> <winners>')
+   if(parseInt(winners) > 10) return message.channel.send('The winners must be less than 10! | Usage: greroll <messageid> <winners>')
     const m = await message.channel.messages.fetch(args[1]).catch((err) => {
-      return message.channel.send('That is not a valid message ID | The message must be in the same channel as you.')
+      return message.channel.send('That is not a valid message ID | The message must be in the same channel as you. | Usage: greroll <messageid> <winners>')
     })
   
     if(!m) return message.reply('That is an invalid message ID!')

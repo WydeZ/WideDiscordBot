@@ -3,65 +3,31 @@ const bot = new Discord.Client();
 const ms = require("ms");
 const ss = require("parse-ms")
 const moment = require("moment")
-const apis = require('blueapi.js');
-const weather = require('weather-js')
-const { parse } = require("twemoji-parser");
-const petPetGif = require('pet-pet-gif')
-var rn = require('random-number');
-const luhv = require('luhv');
 const fetch = require('node-fetch');
-const randomPuppy = require('random-puppy');
-const math = require('mathjs');
 require('events').EventEmitter.defaultMaxListeners = 0;
 const querystring = require('querystring')
-const ezgames = require('ez-games.js')
 const queue = new Map();
-const ranimg = require('ranimg');
-
-var randomWords = require('random-words');
-const yts = require("yt-search");
 const path = require('path');
-const google = require('google')
 const { hangman } = require('reconlx')
-const Canvacord = require("canvacord")
-const api = require('random-stuff-api')
 const fs = require("fs");
-const chatcord = require('chatcord')
-const emoji = require('discord-emoji-convert');
 const db = require("quick.db");
-const hastebin = require("hastebin-gen");
 const random = require('random')
-const translate = require('@k3rn31p4nic/google-translate-api');
 const { TextChannel } = require("discord.js")
-const Jumble = require("jumble-words");
-const MadnessTikTok = require("tiktok-scraper");
-const { Spawn } = require("pokecord");
 const Got = require("got");
-const shorten = require("isgd");
-const { stripIndents } = require("common-tags");
-const figlet = require('figlet');
-const GameCord = require('gamecord');
-const darkrandom = require("random");
-const darkemail = require("random-email");
-const darkpassword = require("generate-password");
-const giphy = require('giphy-api')("W8g6R14C0hpH6ZMon9HV9FTqKs4o4rCk")
-const token = " ";
-const TicTacToe = require('discord-tictactoe');
 const PREFIX = '!';
 const ownerid = "719507348137181254"
-
 const express = require('express')
 const app = express()
 const port = 3000
 app.get('/', (req, res) => res.send('Invite Wide Discord Bot: https://discord.com/oauth2/authorize?client_id=729537680257450104&scope=bot&permissions=8'))
 app.listen(port, () => 
 console.log('Server is online!'))
-
 const cheerio = require('cheerio');
 const request = require('request')
 const repldata = require('@replit/database')
 const tb = new repldata()
- const { Database } = require("quick.replit");
+const { Database } = require("quick.replit");
+const Chat = require("clever-chat");
 const gdb = new Database(process.env.REPLIT_DB_URL)
 const { GiveawaysManager } = require('discord-giveaways');
 const GiveawayManagerWithOwnDatabase = class extends GiveawaysManager {
@@ -558,11 +524,13 @@ if(message.content && !message.author.bot){
         sChannel.startTyping();
     if (!message.content) return sChannel.send("Please say something.");
    
-         fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${content}&botname=Wide&ownername=WideIrenaKan1#3119`) //your chatbot api goes here
-        .then(res => res.json())
-        .then(data => {
-            sChannel.send(`> ${message.content} \n **${message.author.tag}**, ${data.message}`);
-        }).catch((err) => {
+      if(message.content.length > 1024) return message.channel.send('Please keep your message below 1024 characters!')
+const chat = new Chat({ name: "Wide", gender: "non-binary", developer_name: "WideIrenaKan1", religion: 'Private', birthyear: '2020', birthday: 'July 6, 2020', age: '1', favouritecolor: 'orange', favouriteseason: 'summer', favouritemovie: 'Avengers: End Game', favouritesport: 'Basketball', birthplace: "WideIrenaKan1's Laptop", favouriteauthor: 'Rick Riordan', favouritebook: 'Percy Jackson series.', favouriteband: 'none'}); //put your chatbot name, chatbot gender and developer name here
+
+chat.chat(message.content).then(reply => {
+            sChannel.send(`> ${message.content} \n **${message.author.tag}**, ${reply}`)
+})
+  .catch((err) => {
           return
         }).then(() => {
            sChannel.stopTyping();
@@ -591,7 +559,7 @@ bot.on("message", message => {
     let id = args[1]
    bot.guilds.cache.get(id).leave().then(() => {
       message.channel.send(`Succesfully left the guild`).catch((err) => {
-        return message.channel.send('Something went wrong')
+        return message.channel.send(`Something went wrong | Error: ${err}`)
       })
     })
   }

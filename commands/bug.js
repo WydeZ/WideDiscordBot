@@ -19,7 +19,7 @@ module.exports = {
                 .setFooter(`Sent by ${message.author.tag} (${message.author.id})`)
                 .setColor('RANDOM')
             reportsChannel.send(embed)
-            })
+            
           
 	},
 };

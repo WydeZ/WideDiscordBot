@@ -18,6 +18,7 @@
     "canvacord": "^4.0.1",
     "chatcord": "0.0.5",
     "cheerio": "^1.0.0-rc.3",
+    "clever-chat": "^7.0.1",
     "common-tags": "^1.8.0",
     "db": "^3.3.0",
     "discord": "^0.8.2",

@@ -15,6 +15,8 @@ module.exports = {
     if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Wide Giveaways")){
         return message.channel.send(':x: You need to have the permission Manage Messages or a role named "Wide Giveaways"');
     }
+        let notEnded = bot.giveawaysManager.giveaways.filter((g) => !g.ended)
+      if(notEnded > 20) return message.channel.send('You cannot make more than 20 giveaways!')
 const wideemoji = bot.emojis.cache.get("834224941150502912")
             if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
 

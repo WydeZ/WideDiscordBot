@@ -4,10 +4,11 @@ module.exports = {
     name: 'wyr',
     description: 'Would you rather',
     args: false,
-    usage: `!wyr`,
+    usage: `wyr`,
     aliases: ['wouldyourather'],
     async execute(message, args, bot) {
        if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
+        if (!message.guild.me.hasPermission("ADD_REACTIONS")) return message.channel.send('I do not have the right permission: Add Reactions')
       const data = await this.fetchScenario();
 
       const embed = new Discord.MessageEmbed()

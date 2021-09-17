@@ -3,7 +3,7 @@ module.exports = {
 	name: 'roast',
 	description: 'Sends a random roast',
 	aliases: ['burn'],
-	usage: '!roast',
+	usage: 'roast',
 	cooldown: 1,
 	execute(message, args, bot) {
 

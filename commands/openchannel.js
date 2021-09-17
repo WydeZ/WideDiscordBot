@@ -26,7 +26,7 @@ const openrole = message.guild.roles.everyone
         message.channel.send(`Sucess! I have made the channel public for the role.\n\n**TIP**: Want to open the channel for a certain role/person? Just enter the role ID (only works if role id) or mention the person (only works if mention).`).then(m => m.delete({ timeout: 5000 }))
         }
          else if (person) { message.delete()
-        message.channel.updateOverwrite(person, { "SEND_MESSAGES": false })
+        message.channel.updateOverwrite(person, { "VIEW_CHANNEL": true })
         message.channel.send(`Sucess! I have made the channel public for the person.\n\n**TIP**: Want to open the channel for a certain role/person? Just enter the role ID (only works if role id) or mention the person (only works if mention `).then(m => m.delete({ timeout: 5000 }))
         }
   else return message.channel.send("Please specify by mentioning a user or by mentioning a role ID. Don't type anything if you wanna lock the channel for everyone.")

@@ -5,7 +5,7 @@ module.exports = {
 	name: 'wide',
 	description:'Makes an avatar W I D E' ,
 	aliases: ['widened'],
-	usage: '!wide <user(optional>',
+	usage: 'wide <user(optional>',
 	cooldown: 1,
 		async execute(message, args, bot) {
        if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')

@@ -15,12 +15,17 @@ const openrole = message.guild.roles.everyone
         if (!args[1]) {
             message.delete()
             message.channel.updateOverwrite(openrole, { "SEND_MESSAGES": true }).then(() => {
-                message.channel.send('Sucess! I have unlocked the channel.').then(m => m.delete({ timeout: 3500 }))
+                message.channel.send('Sucess! I have unlocked the channel.\n\n**TIP**: Want to unlock the channel for a certain role/person? Just enter the role ID (only works if role id) or mention the person (only works if mention)').then(m => m.delete({ timeout: 5000 }))
             })
         } else if (rolelock) { message.delete()
         message.channel.updateOverwrite(rolelock, { "SEND_MESSAGES": true })
-        message.channel.send(`Sucess! I have unlocked the channel for the role.`).then(m => m.delete({ timeout: 3500 }))
+        message.channel.send(`Sucess! I have unlocked the channel for the role.\n\n**TIP**: Want to unlock the channel for a certain role/person? Just enter the role ID (only works if role id) or mention the person (only works if mention)`).then(m => m.delete({ timeout: 5000 }))
         }
+         else if (person) { message.delete()
+        message.channel.updateOverwrite(person, { "SEND_MESSAGES": true })
+        message.channel.send(`Sucess! I have unlocked the channel for the person.\n\n**TIP**: Want to unlock the channel for a certain role/person? Just enter the role ID (only works if role id) or mention the person (only works if mention)`).then(m => m.delete({ timeout: 5000 }))
+        }
+  else return message.channel.send("Please specify by mentioning a user or by mentioning a role ID. Don't type anything if you wanna unlock the channel for everyone.")
 
 	},
 };

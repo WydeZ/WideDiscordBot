@@ -23,7 +23,7 @@ module.exports = {
                 return role.name === roleName
             })
             if (!role) {
-                message.reply(`There is no role with the name "**${roleName}**"`)
+                message.reply(`There is no role with the name "**${roleName}** (Case Sensitive)"`)
                 return
             }
 

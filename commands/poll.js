@@ -17,7 +17,7 @@ module.exports = {
             message.delete()
             const sent = await message.channel.send(new Discord.MessageEmbed()
                 .setTitle(`${question}`)
-                .setColor("RANDOM")
+                .setColor("ORANGE")
                 .setTimestamp()
                 .setFooter(`Poll Created by: ${message.author.tag}`)
                 .setDescription(choices.map((choice, i) => `${reactions[i]} ${choice}`).join('\n\n')))
