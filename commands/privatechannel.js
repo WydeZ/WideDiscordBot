@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
 	name: 'privatechannel',
 	description:'Makes the channel private (Not visible to the public)' ,
-	aliases: ['privatech'],
+	aliases: ['privatech', "privch"],
 	usage: 'privatechannel <role(optional)>',
 	cooldown: 1,
 	execute(message, args, bot) {
