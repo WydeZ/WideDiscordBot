@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const fetch = require('node-fetch')
 module.exports = {
 	name: 'channeldelete',
-	description: 'Delets a channel',
+	description: 'Deletes a channel (With confirmation)',
 	aliases: ['deletechannel', 'chdel', 'delch', 'channeldel','deletech'],
 	usage: 'channeldelete',
 	cooldown: 1,

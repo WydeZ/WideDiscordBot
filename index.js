@@ -1,19 +1,8 @@
  const Discord = require('discord.js')
 const bot = new Discord.Client();
-const ms = require("ms");
-const ss = require("parse-ms")
-const moment = require("moment")
-const fetch = require('node-fetch');
 require('events').EventEmitter.defaultMaxListeners = 0;
-const querystring = require('querystring')
-const queue = new Map();
-const path = require('path');
-const { hangman } = require('reconlx')
 const fs = require("fs");
 const db = require("quick.db");
-const random = require('random')
-const { TextChannel } = require("discord.js")
-const Got = require("got");
 const PREFIX = '!';
 const ownerid = "719507348137181254"
 const express = require('express')
@@ -22,10 +11,6 @@ const port = 3000
 app.get('/', (req, res) => res.send('Invite Wide Discord Bot: https://discord.com/oauth2/authorize?client_id=729537680257450104&scope=bot&permissions=8'))
 app.listen(port, () => 
 console.log('Server is online!'))
-const cheerio = require('cheerio');
-const request = require('request')
-const repldata = require('@replit/database')
-const tb = new repldata()
 const { Database } = require("quick.replit");
 const Chat = require("clever-chat");
 const gdb = new Database(process.env.REPLIT_DB_URL)
@@ -295,7 +280,6 @@ bot.on('message', async message => {
     if(blacklisted === "blacklist") return message.channel.send(`That user is already blacklisted!`)
         })
     
-        
     let reason = args.slice(2).join(' ')
     if(!reason) reason = "N/A"
     bot.users.fetch(args[1]).then(user => {
@@ -375,10 +359,10 @@ if(message.channel.type === "dm") return
       if (message.content == bot.user.toString()) {
         const embed = new Discord.MessageEmbed()
             .setTitle("Prefix")
-            .setDescription(`My Prefix is "${prefix}"`)
+            .setDescription(`My Prefix is "${prefix}" and ${bot.user.toString()}`)
             .setFooter(`Type ${prefix}help for more information | "${prefix}newprefix set <prefix>" to change prefix`)
             .setThumbnail(bot.user.displayAvatarURL())
-            .setColor('RANDOM')
+            .setColor('ORANGE')
         message.channel.send(embed)
     }
 
@@ -517,8 +501,37 @@ if(message.channel.type === "dm") return
      message.content = message.content.replace(/@(everyone)/gi, "everyone").replace(/@(here)/gi, "here");
      if (message.content.includes(`@`)) {
         return sChannel.send(`**:x: Please dont mention anyone**`)
-
      }
+
+    var badWords = ["https://", ".com", 'https', '.gg', '.xyz', 'fuck', 'nigger', 'shit', 'bitch', 'cum', 'boob', 'nude'];
+
+  function testProfanity(string) {
+
+  var normalString = string.replace(/[^a-zA-Z0-9 ]/g, "");
+  var spacerString = string.replace(/[^a-zA-Z0-9]/g, " ");
+
+  return badWords.some(swear => {
+  
+    var filtered = swear.replace(/\W/g, "");
+    var spaced = filtered.split("").join(" ");
+    
+    var checks = {
+      spaced: new RegExp(`\\b${spaced}\\b`, "gi"),
+      normal: new RegExp(`\\b${filtered}\\b`, "gi")
+    };
+    
+    return spacerString.match(checks.spaced) || normalString.match(checks.normal);
+  });
+  }
+
+if(testProfanity(message.content.toLowerCase())) {
+        return message.delete().then(() => {
+        message.reply('Please refrain from posting links/saying bad words.').then(msg => {
+        msg.delete({ timeout: 3000 })
+    })
+        })
+}
+
       let content = message.content;
 if(message.content && !message.author.bot){
         sChannel.startTyping();

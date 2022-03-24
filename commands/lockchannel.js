@@ -2,7 +2,7 @@
 const Discord = require('discord.js')
 module.exports = {
 	name: 'lockchannel',
-	description:'Makes the channel can be messages by everybody (or a role)' ,
+	description:'Changes the channel permissions so that the @/everyone role can not message the channel.' ,
 	aliases: ['lockch'],
 	usage: 'lockchannel <role/person (optional)>',
 	cooldown: 1,
