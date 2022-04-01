@@ -4,7 +4,7 @@ module.exports = {
 	name: 'help',
 	description: 'List all of my commands or info about a specific command.',
 	aliases: ['commands'],
-	usage: 'help | !help <command name>',
+	usage: 'help | help <command name>',
 	cooldown: 1,
 	async execute(message, args, bot) {
  const { commands } = message.client
@@ -15,11 +15,11 @@ module.exports = {
 
  var Wide = "`ping`, `poll`, `spoll`, `say`, `8ball`, `rate`, `roast`, `urban`, `emojify`, `translate`, `randomnumber`,  `emergency,` `translate`, `ascii`, `hack`, `pepe`, `iq`, `truth`, `dare`, `decode`, `scrabble`"
 var funay = "`battle`, `ttt`, `hangman`, `rps`, `quiz`, `snake`, `connectfour`, `pokemon`, `speedgame`, `flaggame`, `wyr`"
-var inf = "`invite`, `profile`, `vote`, `serverinfo`, `botinfo`, `weather`, `covid`,  `emojiinfo`, `npm`, `define`, `decode`"
+var inf = "`invite`, `avatar`, `vote`, `serverinfo`, `botinfo`, `weather`, `covid`,  `emojiinfo`, `npm`, `define`, `decode`"
 var mod = "`kick`, `ban`, `clear`, `slowmode`, `privatechannel`, `lockchannel,` `unlockchannel`, `openchannel`, `setnickname`, `nuke`, `giverole`, `removerole`, `channeldelete`"
 var gib = "`gstart`, `gedit`, `greroll`, `gdelete`, `gend`, `ginfo`"
 var imagess = "`image`, `gif`, `pat`, `deepfry`, `meme`, `delete`, `trigger`, `trash`, `pixelate`, `grayscale`, `wanted`, `wasted`, `changemymind`, `blur`, `clyde`, `grave`, `inverted`, `achievement`, `magik`, `wide`"
-var other = "`bug`, `report`, `suggestion`, `avatar`, `translate`, `links`, `newprefix`, `embed`, `afk`, `steale`, `eremove`, `decode`, `msgemoji`, `poll`, `spoll`, "
+var other = "`bug`, `report`, `suggestion`, `translate`, `links`, `newprefix`, `embed`, `afk`, `steale`, `eremove`, `decode`, `msgemoji`, `poll`, `spoll`, "
 var pog = "`chatbot`, `setchatbotchannel`, `disablechatbotchannel`, `setstarboard`, `setstarcount`, `starboard`"
  if(!args[1]){
 
@@ -35,7 +35,7 @@ var pog = "`chatbot`, `setchatbotchannel`, `disablechatbotchannel`, `setstarboar
                 .addField('Awsome Addons!', pog)
                 .setColor('ORANGE')
                 .setThumbnail(message.author.displayAvatarURL())
-                .setFooter(`Type ${prefix}help <command-name> to get more info about the command`)
+                .setFooter(`Type ${prefix}help <command-name> to get more info about the command | newprefix to change prefix.`)
         
             message.channel.send(embed)
  } else {
