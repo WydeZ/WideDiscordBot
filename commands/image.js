@@ -10,7 +10,7 @@ module.exports = {
 	async execute(message, args, bot) {
 	  if(!args[1]) return message.channel.send('Please provide to me something to search | Usage: image <word>')
     var options = {
-        url: "http://results.dogpile.com/serp?qc=images&q=" + `${args[1]}`,
+        url: "http://results.dogpile.com/serp?qc=images&q=" + `${args.slice(1).join(" ")}`,
         method: "GET",
         headers: {
             "Accept": "text/html",
@@ -20,9 +20,9 @@ module.exports = {
     };
 
  let oop = args.slice(1).join(" ")
-                let baby = ['nude', 'boob', 'sex', 'porn', 'dick', 'penis']
-                for (var i = 0; i < baby.length; i++) {
-                    if (oop.includes(baby[i])) {
+                let badWord = ['nude', 'boob', 'sex', 'porn', 'dick', 'penis']
+                for (var i = 0; i < badWord.length; i++) {
+                    if (oop.includes(badWord[i])) {
                         return message.channel.send('**Please search for something else** :x:')
                     }
                 }
@@ -30,7 +30,7 @@ module.exports = {
 
     request(options, function (error, _response, responseBody) {
         if (error) {
-            return;
+            return console.log(error)
         }
 
 
@@ -43,11 +43,16 @@ module.exports = {
 
         if (!urls.length) {
 
-            return;
+            return console.log('uh')
         }
 
         // Send result
-        message.channel.send(urls[Math.floor(Math.random() * urls.length)]);
+       let embed = new Discord.MessageEmbed()
+                .setTitle(`Here is your image!`)
+                .setImage(urls[Math.floor(Math.random() * urls.length)])
+                .setColor('ORANGE')
+      
+  message.channel.send(embed);
     });
 
     },

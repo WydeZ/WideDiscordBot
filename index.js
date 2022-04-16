@@ -1,4 +1,4 @@
- const Discord = require('discord.js')
+const Discord = require('discord.js')
 const bot = new Discord.Client();
 require('events').EventEmitter.defaultMaxListeners = 0;
 const fs = require("fs");

@@ -8,7 +8,7 @@ module.exports = {
 		async execute(message, args, bot) {
            if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
              if (!message.guild.me.hasPermission("ATTACH_FILES")) return message.channel.send('I do not have the right permission: Attach Files')
-            let person = message.mentions.users.first() || message.author || await message.guild.members.fetch(args[1]);
+            let person = message.mentions.users.first() || message.author || await message.guild.members.cache.get(args[1]);
       
             const avatarembed = new Discord.MessageEmbed()
                 .setTitle(`${person.tag}'s avatar`)

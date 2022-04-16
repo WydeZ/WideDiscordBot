@@ -1,6 +1,4 @@
-
 const Discord = require('discord.js')
-const GameCord = require('gamecord');
 const ezgames = require ("ez-games.js")
 module.exports = {
 	name: 'flaggame',
