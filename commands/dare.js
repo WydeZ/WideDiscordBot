@@ -1,22 +1,22 @@
-
 const Discord = require('discord.js')
-const luhv = require('luhv');
+const fetch = require('node-fetch')
 module.exports = {
 	name: 'dare',
-	description:'Its like truth or dare' ,
+	description:'Generates a random dare! (It is like truth or dare)' ,
 	aliases: ['dares'],
-	usage: '!dare',
+	usage: 'dare',
 	cooldown: 1,
 		async execute(message, args, bot) {
       if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send('I do not have the right permission: Embed Links')
-    luhv.dare(dare => {
-       const embed = new Discord.MessageEmbed()
+      const dare = await fetch(`https://api.truthordarebot.xyz
+/api/dare`)
+         const embed = new Discord.MessageEmbed()
     .setTitle('Dare')
-    .setDescription(dare)
-       .setColor("RANDOM")
-    message.channel.send(embed)
-});     
-     
-          
+    .setDescription(dare['question'])
+       .setColor("ORANGE")
+    message.channel.send(embed) 
+      const hi = dare['question']
+    console.log(hi, JSON.stringify(hi))
+                                           
 	},
 };

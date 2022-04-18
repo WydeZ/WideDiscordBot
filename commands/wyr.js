@@ -16,10 +16,6 @@ module.exports = {
         .setTitle("Would you rather...")
         .setDescription(`**A.** ${data.option_1}\n**B.** ${data.option_2}`)
             .setColor('RANDOM')
-      message.channel.send(embed).then((msg) => {
-        msg.react("🅰️");
-        msg.react("🅱️");
-      });
     },
 
     async fetchScenario() {
